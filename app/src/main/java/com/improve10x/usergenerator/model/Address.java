@@ -1,5 +1,7 @@
 package com.improve10x.usergenerator.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Address {
 
     private String streetAddress;
@@ -7,22 +9,22 @@ public class Address {
     private String state;
     private String country;
     private String zip;
-    private Integer geonameId;
+    @SerializedName("geonameId")
+    private Integer geoNameId;
     private String phoneNumber;
     private String ipAddress;
     private String countryCode;
 
     public Address() {
-
     }
     public Address(String streetAddress, String city, String state, String country, String zip,
-                   Integer geonameId, String phoneNumber, String ipAddress, String countryCode) {
+                   Integer geoNameId, String phoneNumber, String ipAddress, String countryCode) {
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
         this.country = country;
         this.zip = zip;
-        this.geonameId = geonameId;
+        this.geoNameId = geoNameId;
         this.phoneNumber = phoneNumber;
         this.ipAddress = ipAddress;
         this.countryCode = countryCode;
@@ -68,12 +70,12 @@ public class Address {
         this.zip = zip;
     }
 
-    public Integer getGeonameId() {
-        return geonameId;
+    public Integer getGeoNameId() {
+        return geoNameId;
     }
 
-    public void setGeonameId(Integer geonameId) {
-        this.geonameId = geonameId;
+    public void setGeoNameId(Integer geoNameId) {
+        this.geoNameId = geoNameId;
     }
 
     public String getPhoneNumber() {

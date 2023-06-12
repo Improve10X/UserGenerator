@@ -1,11 +1,14 @@
 package com.improve10x.usergenerator.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
 
     private String name;
     private Integer age;
     private String job;
-    private Integer incomeUSD;
+    @SerializedName("incomeUSD")
+    private Integer incomeUsd;
     private Integer creditScore;
     private String ccNumber;
     private Boolean married;
@@ -21,22 +24,23 @@ public class User {
     private Float politicalLeaning;
     private String religion;
     private Address address;
-    private String doB;
+    @SerializedName("doB")
+    private String dob;
     private Float gpa;
 
     public User() {
 
     }
 
-    public User(String name, Integer age, String job, Integer incomeUSD, Integer creditScore,
+    public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore,
                 String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weight,
                 String eyeColor, String email, String gender, Boolean hasDegree, String bloodType,
-                String username, Float politicalLeaning, String religion, Address address, String doB,
+                String username, Float politicalLeaning, String religion, Address address, String dob,
                 Float gpa) {
         this.name = name;
         this.age = age;
         this.job = job;
-        this.incomeUSD = incomeUSD;
+        this.incomeUsd = incomeUsd;
         this.creditScore = creditScore;
         this.ccNumber = ccNumber;
         this.married = married;
@@ -52,7 +56,7 @@ public class User {
         this.politicalLeaning = politicalLeaning;
         this.religion = religion;
         this.address = address;
-        this.doB = doB;
+        this.dob = dob;
         this.gpa = gpa;
     }
 
@@ -80,12 +84,12 @@ public class User {
         this.job = job;
     }
 
-    public Integer getIncomeUSD() {
-        return incomeUSD;
+    public Integer getIncomeUsd() {
+        return incomeUsd;
     }
 
-    public void setIncomeUSD(Integer incomeUSD) {
-        this.incomeUSD = incomeUSD;
+    public void setIncomeUsd(Integer incomeUsd) {
+        this.incomeUsd = incomeUsd;
     }
 
     public Integer getCreditScore() {
@@ -208,12 +212,12 @@ public class User {
         this.address = address;
     }
 
-    public String getDoB() {
-        return doB;
+    public String getDob() {
+        return dob;
     }
 
-    public void setDoB(String doB) {
-        this.doB = doB;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public Float getGpa() {

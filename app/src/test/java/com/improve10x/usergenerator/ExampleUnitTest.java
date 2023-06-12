@@ -29,7 +29,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void getUsers() throws IOException {
+    public void getUsers() throws IOException { // random
         PeopleGenerateApi peopleGenerateApi = new PeopleGenerateApi();
         PeopleGenerateApiService peopleGenerateApiService = peopleGenerateApi.createUserApiService();
         Call<List<User>> call = peopleGenerateApiService.fetchUsers();
