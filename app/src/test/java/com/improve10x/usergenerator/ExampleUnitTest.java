@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.Person;
+import com.improve10x.usergenerator.randomNetwork.RandomPersonApi;
+import com.improve10x.usergenerator.randomNetwork.RandomPersonApiService;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,8 +27,8 @@ public class ExampleUnitTest {
 
     @Test
     public void getUserDetails() throws IOException {
-        UserApiService userApiService = new UserApi().createUserApiService();
-        Call<List<Person>> call = userApiService.getUsersDetails();
+        RandomPersonApiService randomPersonApiService = new RandomPersonApi().createUserApiService();
+        Call<List<Person>> call = randomPersonApiService.getRandomPersonDetails();
         List<Person> person = call.execute().body();
         assertNotNull(person);
         assertFalse(person.isEmpty());

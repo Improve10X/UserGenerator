@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.usersNetwork;
 
 import com.improve10x.usergenerator.model.Person;
 
@@ -7,8 +7,8 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface UserApiService {
+public interface UsersApiService {
 
-    @GET("api/person/10")
+    @GET("venusTemplates")
     Call<List<Person>> getUsersDetails();
 }
