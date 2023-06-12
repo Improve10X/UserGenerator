@@ -7,8 +7,8 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.Address;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.network.CrudApiService;
-import com.improve10x.usergenerator.network.CrudApi;
+import com.improve10x.usergenerator.network.CrudUserApiService;
+import com.improve10x.usergenerator.network.CrudUserApi;
 import com.improve10x.usergenerator.network.PeopleGenerateApi;
 import com.improve10x.usergenerator.network.PeopleGenerateApiService;
 
@@ -29,10 +29,10 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void getUsers() throws IOException { // random
+    public void getPeopleGenerateUsers() throws IOException {
         PeopleGenerateApi peopleGenerateApi = new PeopleGenerateApi();
-        PeopleGenerateApiService peopleGenerateApiService = peopleGenerateApi.createUserApiService();
-        Call<List<User>> call = peopleGenerateApiService.fetchUsers();
+        PeopleGenerateApiService peopleGenerateApiService = peopleGenerateApi.createPeopleGenerateApiService();
+        Call<List<User>> call = peopleGenerateApiService.fetchPeopleGenerateUsers();
         List<User> users = call.execute().body();
         assertNotNull(users);
         assertFalse(users.isEmpty());
@@ -41,8 +41,8 @@ public class ExampleUnitTest {
 
     @Test
     public void createUser() throws IOException {
-        CrudApi crudApi = new CrudApi();
-        CrudApiService crudApiService = crudApi.createCurdApiService();
+        CrudUserApi crudUserApi = new CrudUserApi();
+        CrudUserApiService crudUserApiService = crudUserApi.createCurdUserApiService();
         Address address = new Address("Telugu Peta", "Velugode", "Andhra pradesh",
                 "India", "zip", 1938, "9014523499", "bommal satram", "+91");
         User user = new User("surya", 23, "Android developer", 1929487,
@@ -50,17 +50,17 @@ public class ExampleUnitTest {
                 false, 160, 68.0f, "Black", "ssss.com",
                 "male", true, "B+ve", "surya", 190.0f,
                 "Hindhu", address, "1999-09-12",70.0f );
-        Call<User> call = crudApiService.createUser(user);
-        User users = call.execute().body();
-        assertNotNull(users);
-        System.out.println(new Gson().toJson(users));
+        Call<User> call = crudUserApiService.createUser(user);
+        User user1 = call.execute().body();
+        assertNotNull(user1);
+        System.out.println(new Gson().toJson(user1));
     }
 
     @Test
-    public void fetchUsers() throws IOException {
-        CrudApi crudApi = new CrudApi();
-        CrudApiService crudApiService = crudApi.createCurdApiService();
-        Call<List<User>> call = crudApiService.fetchUsers();
+    public void getUsers() throws IOException {
+        CrudUserApi crudUserApi = new CrudUserApi();
+        CrudUserApiService crudUserApiService = crudUserApi.createCurdUserApiService();
+        Call<List<User>> call = crudUserApiService.fetchUsers();
         List<User> users = call.execute().body();
         assertNotNull(users);
         assertFalse(users.isEmpty());

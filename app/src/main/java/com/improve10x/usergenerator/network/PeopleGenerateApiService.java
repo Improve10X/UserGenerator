@@ -10,5 +10,5 @@ import retrofit2.http.GET;
 public interface PeopleGenerateApiService {
 
     @GET("person/10")
-    Call<List<User>> fetchUsers();
+    Call<List<User>> fetchPeopleGenerateUsers();
 }
