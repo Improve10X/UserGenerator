@@ -20,5 +20,5 @@ public interface CrudService {
     Call<User> createData(@Body User user);
 
     @DELETE("479dd07f8c1d482e9219f7dcb48e25f4/marsTemplates/{id}")
-    Call<User> deleteData(@Path("id") String id);
+    Call<Void> deleteData(@Path("id") String id);
 }

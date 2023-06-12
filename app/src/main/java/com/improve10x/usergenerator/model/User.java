@@ -22,6 +22,37 @@ public class User {
     private Address address;
     private String doB;
     private Float gpa;
+
+    public User() {
+    }
+
+    public User(String name, Integer age, String job, Integer incomeUSD, Integer creditScore,
+                String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weight,
+                String eyeColor, String email, String gender, Boolean hasDegree, String bloodType,
+                String username, Float politicalLeaning, String religion, Address address, String doB,
+                Float gpa) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.incomeUSD = incomeUSD;
+        this.creditScore = creditScore;
+        this.ccNumber = ccNumber;
+        this.married = married;
+        this.hasChildren = hasChildren;
+        this.height = height;
+        this.weight = weight;
+        this.eyeColor = eyeColor;
+        this.email = email;
+        this.gender = gender;
+        this.hasDegree = hasDegree;
+        this.bloodType = bloodType;
+        this.username = username;
+        this.politicalLeaning = politicalLeaning;
+        this.religion = religion;
+        this.address = address;
+        this.doB = doB;
+        this.gpa = gpa;
+    }
 }
 
 //{
