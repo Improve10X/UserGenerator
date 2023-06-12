@@ -1,6 +1,10 @@
 package com.improve10x.usergenerator.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Person {
+    @SerializedName("_id")
+    private String id;
 
     private String name;
     private Integer age;
@@ -26,6 +30,14 @@ public class Person {
     private Address address;
     private String doB;
     private Float gpa;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

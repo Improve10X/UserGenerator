@@ -19,6 +19,6 @@ public interface UsersApiService {
     @POST("venusTemplates")
     Call<Person> createPersonDetails(@Body Person person);
 
-    @DELETE("venusTemplates /{id}")
+    @DELETE("venusTemplates/{id}")
     Call<Void> deletePersonDetails(@Path("id") String id);
 }

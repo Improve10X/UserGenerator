@@ -60,4 +60,11 @@ public class ExampleUnitTest {
         assertNotNull(person1);
         System.out.println(new Gson().toJson(person1));
     }
+
+    @Test
+    public void deleteUser() throws IOException {
+        UsersApiService usersApiService = new UsersApi().createUserApiService();
+        Call<Void> call = usersApiService.deletePersonDetails("6486fe56c632b703e8303ad5");
+        call.execute();
+    }
 }
