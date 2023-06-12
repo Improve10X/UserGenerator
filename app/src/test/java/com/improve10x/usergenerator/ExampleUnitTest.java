@@ -6,7 +6,10 @@ import static org.junit.Assert.*;
 
 
 import com.google.gson.Gson;
+import com.improve10x.usergenerator.model.Address;
 import com.improve10x.usergenerator.model.User;
+import com.improve10x.usergenerator.network.CrudApiService;
+import com.improve10x.usergenerator.network.CurdApi;
 import com.improve10x.usergenerator.network.PeopleGenerateApi;
 import com.improve10x.usergenerator.network.PeopleGenerateApiService;
 
@@ -34,6 +37,23 @@ public class ExampleUnitTest {
         List<User> users = call.execute().body();
         assertNotNull(users);
         assertFalse(users.isEmpty());
+        System.out.println(new Gson().toJson(users));
+    }
+
+    @Test
+    public void createUser() throws IOException {
+        CurdApi curdApi = new CurdApi();
+        CrudApiService crudApiService = curdApi.createCurdApiService();
+        Address address = new Address("Telugu Peta", "Velugode", "Andhra pradesh",
+                "India", "zip", 1938, "9014523499", "bommal satram", "+91");
+        User user = new User("surya", 23, "Android developer", 1929487,
+                192934, "294jgghd", false,
+                false, 160, 68.0f, "Black", "ssss.com",
+                "male", true, "B+ve", "surya", 190.0f,
+                "Hindhu", address, "1999-09-12",70.0f );
+        Call<User> call = crudApiService.createUser(user);
+        User users = call.execute().body();
+        assertNotNull(users);
         System.out.println(new Gson().toJson(users));
     }
 }

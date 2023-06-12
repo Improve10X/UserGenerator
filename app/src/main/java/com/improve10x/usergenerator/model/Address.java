@@ -12,6 +12,22 @@ public class Address {
     private String ipAddress;
     private String countryCode;
 
+    public Address() {
+
+    }
+    public Address(String streetAddress, String city, String state, String country, String zip,
+                   Integer geonameId, String phoneNumber, String ipAddress, String countryCode) {
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        this.zip = zip;
+        this.geonameId = geonameId;
+        this.phoneNumber = phoneNumber;
+        this.ipAddress = ipAddress;
+        this.countryCode = countryCode;
+    }
+
     public String getStreetAddress() {
         return streetAddress;
     }
