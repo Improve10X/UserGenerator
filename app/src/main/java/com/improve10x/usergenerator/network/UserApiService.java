@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.network;
 
 import com.improve10x.usergenerator.model.User;
 
