@@ -4,12 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.Address;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.CrudApiService;
-import com.improve10x.usergenerator.network.CurdApi;
+import com.improve10x.usergenerator.network.CrudApi;
 import com.improve10x.usergenerator.network.PeopleGenerateApi;
 import com.improve10x.usergenerator.network.PeopleGenerateApiService;
 
@@ -42,8 +41,8 @@ public class ExampleUnitTest {
 
     @Test
     public void createUser() throws IOException {
-        CurdApi curdApi = new CurdApi();
-        CrudApiService crudApiService = curdApi.createCurdApiService();
+        CrudApi crudApi = new CrudApi();
+        CrudApiService crudApiService = crudApi.createCurdApiService();
         Address address = new Address("Telugu Peta", "Velugode", "Andhra pradesh",
                 "India", "zip", 1938, "9014523499", "bommal satram", "+91");
         User user = new User("surya", 23, "Android developer", 1929487,
@@ -54,6 +53,17 @@ public class ExampleUnitTest {
         Call<User> call = crudApiService.createUser(user);
         User users = call.execute().body();
         assertNotNull(users);
+        System.out.println(new Gson().toJson(users));
+    }
+
+    @Test
+    public void fetchUsers() throws IOException {
+        CrudApi crudApi = new CrudApi();
+        CrudApiService crudApiService = crudApi.createCurdApiService();
+        Call<List<User>> call = crudApiService.fetchUsers();
+        List<User> users = call.execute().body();
+        assertNotNull(users);
+        assertFalse(users.isEmpty());
         System.out.println(new Gson().toJson(users));
     }
 }

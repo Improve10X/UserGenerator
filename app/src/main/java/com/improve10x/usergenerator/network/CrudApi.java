@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CurdApi {
+public class CrudApi {
     public CrudApiService createCurdApiService() {
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();

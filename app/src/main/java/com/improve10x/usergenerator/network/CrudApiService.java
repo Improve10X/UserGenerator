@@ -13,4 +13,7 @@ public interface CrudApiService {
 
     @POST("479dd07f8c1d482e9219f7dcb48e25f4/earthTemplates")
     Call<User> createUser(@Body User user);
+
+    @GET("479dd07f8c1d482e9219f7dcb48e25f4/earthTemplates")
+    Call<List<User>> fetchUsers();
 }
