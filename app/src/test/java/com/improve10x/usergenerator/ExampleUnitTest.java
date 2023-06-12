@@ -7,8 +7,8 @@ import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.network.UserApi;
-import com.improve10x.usergenerator.network.UserApiService;
+import com.improve10x.usergenerator.network.PeopleGenerateApi;
+import com.improve10x.usergenerator.network.PeopleGenerateApiService;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,9 +28,9 @@ public class ExampleUnitTest {
 
     @Test
     public void getUsers() throws IOException {
-        UserApi userApi = new UserApi();
-        UserApiService userApiService = userApi.createUserApiService();
-        Call<List<User>> call = userApiService.fetchUsers();
+        PeopleGenerateApi peopleGenerateApi = new PeopleGenerateApi();
+        PeopleGenerateApiService peopleGenerateApiService = peopleGenerateApi.createUserApiService();
+        Call<List<User>> call = peopleGenerateApiService.fetchUsers();
         List<User> users = call.execute().body();
         assertNotNull(users);
         assertFalse(users.isEmpty());
