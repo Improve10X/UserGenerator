@@ -8,7 +8,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
-public interface RandomPersonApiService {
+public interface RandomPeopleApiService {
 
     @GET(Constants.GET_RANDOM_END_POINT)
     Call<List<User>> getRandomPeople();
