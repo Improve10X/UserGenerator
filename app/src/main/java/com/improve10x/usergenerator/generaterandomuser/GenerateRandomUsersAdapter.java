@@ -35,7 +35,7 @@ public class GenerateRandomUsersAdapter extends RecyclerView.Adapter<GenerateRan
         holder.binding.userEmailTxt.setText("email : " + generateRandomUser.getEmail());
         holder.binding.userIncomeTxt.setText("Income : $" + generateRandomUser.getIncomeUsd());
         holder.binding.userCreditScoreTxt.setText("Credit Score : " + generateRandomUser.getCreditScore());
-        holder.binding.userAddressTxt.setText(generateRandomUser.getAddress().getStreetAddress() + "," +generateRandomUser.getAddress().getCity() + "," + generateRandomUser.getAddress().getZip());
+        holder.binding.userAddressTxt.setText(generateRandomUser.getAddress().getStreetAddress() + ", " +generateRandomUser.getAddress().getCity() + ", " + generateRandomUser.getAddress().getZip());
     }
 
     @Override
