@@ -28,5 +28,33 @@ public class User {
     @SerializedName("doB")
     private String dOB;
     private Float gpa;
+
+    public User() {
+
+    }
+
+    public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore, String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weight, String eyeColor, String email, String gender, Boolean hasDegree, String bloodType, String userName, Float politicalLeaning, String religion, Address address, String dOB, Float gpa) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.incomeUsd = incomeUsd;
+        this.creditScore = creditScore;
+        this.ccNumber = ccNumber;
+        this.married = married;
+        this.hasChildren = hasChildren;
+        this.height = height;
+        this.weight = weight;
+        this.eyeColor = eyeColor;
+        this.email = email;
+        this.gender = gender;
+        this.hasDegree = hasDegree;
+        this.bloodType = bloodType;
+        this.userName = userName;
+        this.politicalLeaning = politicalLeaning;
+        this.religion = religion;
+        this.address = address;
+        this.dOB = dOB;
+        this.gpa = gpa;
+    }
 }
 
