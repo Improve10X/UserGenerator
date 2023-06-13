@@ -17,6 +17,7 @@ public class GenerateRandomUsersAdapter extends RecyclerView.Adapter<GenerateRan
 
     void setGenerateRandomUsers(List<User> generateRandomUsers) {
         this.generateRandomUsers = generateRandomUsers;
+        notifyDataSetChanged();
     }
     @NonNull
     @Override
