@@ -7,8 +7,8 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.Address;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.network.CrudApi;
-import com.improve10x.usergenerator.network.CrudService;
+import com.improve10x.usergenerator.network.CrudUserApi;
+import com.improve10x.usergenerator.network.CrudUsersService;
 import com.improve10x.usergenerator.network.PeopleApi;
 import com.improve10x.usergenerator.network.RandomPeopleService;
 
@@ -40,8 +40,8 @@ public class ExampleUnitTest {
 
     @Test
     public void getCrudUsers() throws IOException {
-        CrudService crudService = new CrudApi().createCrudService();
-        Call<List<User>> call = crudService.fetchData();
+        CrudUsersService crudUsersService = new CrudUserApi().createCrudUserService();
+        Call<List<User>> call = crudUsersService.fetchUsers();
         List<User> users = call.execute().body();
         assertNotNull(users);
         System.out.println(new Gson().toJson(users));
@@ -49,7 +49,7 @@ public class ExampleUnitTest {
 
     @Test
     public void createCrudUsersApi() throws IOException {
-        CrudService crudService = new CrudApi().createCrudService();
+        CrudUsersService crudUsersService = new CrudUserApi().createCrudUserService();
         Address address = new Address("Ngo's colony", "nandyal", "Ap",
                 "India", "zip", 518533,
                 "9052363630", "786i", "Ind");
@@ -58,7 +58,7 @@ public class ExampleUnitTest {
                 false, 156, 60.00f, "Black", "zingzing@gmail.com",
                 "male", true, "A+", "teja",
                 0.00f, "hindu", address, "2001", 9.99f);
-        Call<User> call = crudService.createData(user);
+        Call<User> call = crudUsersService.createUsers(user);
         User user1 = call.execute().body();
         assertNotNull(user1);
         System.out.println(new Gson().toJson(user1));

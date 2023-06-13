@@ -7,9 +7,9 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CrudApi {
+public class CrudUserApi {
 
-    public CrudService createCrudService() {
+    public CrudUsersService createCrudUserService() {
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -23,7 +23,7 @@ public class CrudApi {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
-        CrudService crudService = retrofit.create(CrudService.class);
-        return crudService;
+        CrudUsersService crudUsersService = retrofit.create(CrudUsersService.class);
+        return crudUsersService;
     }
 }
