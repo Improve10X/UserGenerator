@@ -24,6 +24,7 @@ public class User {
     private String userName;
     private Float politicalLeaning;
     private String religion;
+    private Address address;
     @SerializedName("doB")
     private String dOB;
     private Float gpa;
