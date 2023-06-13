@@ -1,6 +1,7 @@
 package com.improve10x.usergenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
@@ -12,9 +13,11 @@ import java.util.List;
 
 public class RandomUsersActivity extends AppCompatActivity {
 
+    private ArrayList<User>  users;
+
     private ActivityRandomUsersBinding activityRandomUsersBinding;
 
-    private ArrayList<User>  users;
+    private RandomUserAdapter randomUserAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +25,7 @@ public class RandomUsersActivity extends AppCompatActivity {
         activityRandomUsersBinding = ActivityRandomUsersBinding.inflate(getLayoutInflater());
         setContentView(activityRandomUsersBinding.getRoot());
         getSupportActionBar().setTitle("Random User");
+
     }
+
 }
