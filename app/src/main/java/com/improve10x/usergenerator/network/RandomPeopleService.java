@@ -1,0 +1,14 @@
+package com.improve10x.usergenerator.network;
+
+import com.improve10x.usergenerator.modelclass.User;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+
+public interface RandomPeopleService {
+
+    @GET("api/person/10")
+    Call<List<User>> fetchRandomPeople();
+}
