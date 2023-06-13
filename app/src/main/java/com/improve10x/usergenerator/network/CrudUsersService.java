@@ -13,12 +13,12 @@ import retrofit2.http.Path;
 
 public interface CrudUsersService {
 
-    @GET("479dd07f8c1d482e9219f7dcb48e25f4/marsTemplates")
+    @GET("479dd07f8c1d482e9219f7dcb48e25f4/mercuryTemplates")
     Call<List<User>> fetchUsers();
 
-    @POST("479dd07f8c1d482e9219f7dcb48e25f4/marsTemplates")
+    @POST("479dd07f8c1d482e9219f7dcb48e25f4/mercuryTemplates")
     Call<User> createUsers(@Body User user);
 
-    @DELETE("479dd07f8c1d482e9219f7dcb48e25f4/marsTemplates/{id}")
+    @DELETE("479dd07f8c1d482e9219f7dcb48e25f4/mercuryTemplates/{id}")
     Call<Void> deleteUsers(@Path("id") String id);
 }
