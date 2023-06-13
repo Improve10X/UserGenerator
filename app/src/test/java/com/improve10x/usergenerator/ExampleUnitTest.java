@@ -29,7 +29,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void getPeopleData() throws IOException {
+    public void getRandomPeople() throws IOException {
         RandomPeopleService randomPeopleService = new PeopleApi().createRandomPeopleService();
         Call<List<User>> call = randomPeopleService.fetchRandomPeople();
         List<User> users = call.execute().body();
@@ -39,7 +39,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void getCrudApiData() throws IOException {
+    public void getCrudUsers() throws IOException {
         CrudService crudService = new CrudApi().createCrudService();
         Call<List<User>> call = crudService.fetchData();
         List<User> users = call.execute().body();
@@ -48,7 +48,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void createCrudApiData() throws IOException {
+    public void createCrudUsersApi() throws IOException {
         CrudService crudService = new CrudApi().createCrudService();
         Address address = new Address("Ngo's colony", "nandyal", "Ap",
                 "India", "zip", 518533,
