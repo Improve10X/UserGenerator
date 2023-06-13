@@ -7,19 +7,20 @@ import android.os.Bundle;
 import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RandomUsersActivity extends AppCompatActivity {
 
-    ActivityRandomUsersBinding binding;
+    private ActivityRandomUsersBinding activityRandomUsersBinding;
 
-    private List<User> users;
+    private ArrayList<User>  users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityRandomUsersBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        activityRandomUsersBinding = ActivityRandomUsersBinding.inflate(getLayoutInflater());
+        setContentView(activityRandomUsersBinding.getRoot());
         getSupportActionBar().setTitle("Random User");
     }
 }
