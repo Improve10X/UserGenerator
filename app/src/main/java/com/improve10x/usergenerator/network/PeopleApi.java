@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PeopleApi {
 
-    public PeopleService createPeopleService() {
+    public RandomPeopleService createRandomPeopleService() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -22,7 +22,7 @@ public class PeopleApi {
                 .client(client)
                 .build();
 
-        PeopleService peopleService = retrofit.create(PeopleService.class);
-        return peopleService;
+        RandomPeopleService randomPeopleService = retrofit.create(RandomPeopleService.class);
+        return randomPeopleService;
     }
 }

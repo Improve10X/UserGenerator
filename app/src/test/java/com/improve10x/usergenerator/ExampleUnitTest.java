@@ -10,13 +10,12 @@ import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.CrudApi;
 import com.improve10x.usergenerator.network.CrudService;
 import com.improve10x.usergenerator.network.PeopleApi;
-import com.improve10x.usergenerator.network.PeopleService;
+import com.improve10x.usergenerator.network.RandomPeopleService;
 
 import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -31,8 +30,8 @@ public class ExampleUnitTest {
 
     @Test
     public void getPeopleData() throws IOException {
-        PeopleService peopleService = new PeopleApi().createPeopleService();
-        Call<List<User>> call = peopleService.fetchPeopleGenerator();
+        RandomPeopleService randomPeopleService = new PeopleApi().createRandomPeopleService();
+        Call<List<User>> call = randomPeopleService.fetchRandomPeople();
         List<User> users = call.execute().body();
         assertNotNull(users);
         assertFalse(users.isEmpty());
