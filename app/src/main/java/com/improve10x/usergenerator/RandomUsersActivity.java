@@ -3,6 +3,7 @@ package com.improve10x.usergenerator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -10,6 +11,8 @@ import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.randomNetwork.RandomPeopleApi;
 import com.improve10x.usergenerator.randomNetwork.RandomPeopleApiService;
+import com.improve10x.usergenerator.usersNetwork.UsersApi;
+import com.improve10x.usergenerator.usersNetwork.UsersApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +43,12 @@ public class RandomUsersActivity extends AppCompatActivity {
     private void connectAdapter() {
         randomUserAdapter = new RandomUserAdapter();
         randomUserAdapter.setUsers(users);
+        randomUserAdapter.setActionListener(new OnItemActionListener() {
+            @Override
+            public void saveUser(User user) {
+                addUser(user);
+            }
+        });
     }
 
     private void setupAdapter() {
@@ -66,5 +75,23 @@ public class RandomUsersActivity extends AppCompatActivity {
             }
         });
     }
+    public void addUser(User user){
+       UsersApi usersApi = new UsersApi();
+       UsersApiService usersApiService = usersApi.createUserApiService();
+       Call<User> call = usersApiService.createUser(user);
+       call.enqueue(new Callback<User>() {
+           @Override
+           public void onResponse(Call<User> call, Response<User> response) {
+               if (response.isSuccessful()){
+                   Toast.makeText(RandomUsersActivity.this, "Success", Toast.LENGTH_SHORT).show();
+               finish();
+               }
+           }
 
+           @Override
+           public void onFailure(Call<User> call, Throwable t) {
+               Toast.makeText(RandomUsersActivity.this, "Failure", Toast.LENGTH_SHORT).show();
+           }
+       });
+    }
 }
