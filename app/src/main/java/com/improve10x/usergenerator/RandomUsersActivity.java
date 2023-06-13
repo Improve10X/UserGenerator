@@ -13,7 +13,7 @@ import java.util.List;
 
 public class RandomUsersActivity extends AppCompatActivity {
 
-    private ArrayList<User>  users;
+    private ArrayList<User>  users = new ArrayList<>();
 
     private ActivityRandomUsersBinding activityRandomUsersBinding;
 
@@ -25,7 +25,18 @@ public class RandomUsersActivity extends AppCompatActivity {
         activityRandomUsersBinding = ActivityRandomUsersBinding.inflate(getLayoutInflater());
         setContentView(activityRandomUsersBinding.getRoot());
         getSupportActionBar().setTitle("Random User");
+        connectAdapter();
+        setupAdapter();
+    }
 
+    private void connectAdapter() {
+        randomUserAdapter = new RandomUserAdapter();
+        randomUserAdapter.setUsers(users);
+    }
+
+    private void setupAdapter() {
+        activityRandomUsersBinding.randomUserRv.setLayoutManager(new LinearLayoutManager(this));
+        activityRandomUsersBinding.randomUserRv.setAdapter(randomUserAdapter);
     }
 
 }
