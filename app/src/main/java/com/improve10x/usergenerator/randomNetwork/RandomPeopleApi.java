@@ -7,8 +7,8 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RandomPersonApi {
-    public RandomPersonApiService createRandomPersonApiService() {
+public class RandomPeopleApi {
+    public RandomPeopleApiService createRandomPeopleApiService() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -21,7 +21,7 @@ public class RandomPersonApi {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
-        RandomPersonApiService randomPersonApiService = retrofit.create(RandomPersonApiService.class);
-        return randomPersonApiService;
+        RandomPeopleApiService randomPeopleApiService = retrofit.create(RandomPeopleApiService.class);
+        return randomPeopleApiService;
     }
 }
