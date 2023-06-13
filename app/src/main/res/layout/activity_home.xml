@@ -7,18 +7,18 @@
     tools:context=".HomeActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/users_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Users"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/gru_btn"
+        app:layout_constraintEnd_toEndOf="@+id/gru_btn"
+        app:layout_constraintStart_toStartOf="@+id/gru_btn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/gru_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -26,5 +26,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/users_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
