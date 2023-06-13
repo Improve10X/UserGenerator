@@ -15,7 +15,7 @@
         android:theme="@style/Theme.UserGenerator"
         tools:targetApi="31">
         <activity
-            android:name=".RandomUsersActivity"
+            android:name=".randomuser.RandomUsersActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

@@ -1,8 +1,10 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.randomuser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.improve10x.usergenerator.R;
 
 public class RandomUsersActivity extends AppCompatActivity {
 

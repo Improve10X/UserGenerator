@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.improve10x.usergenerator.databinding.ActivityHomeBinding;
+import com.improve10x.usergenerator.randomuser.RandomUsersActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
