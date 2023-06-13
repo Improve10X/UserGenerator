@@ -13,7 +13,7 @@ import java.util.List;
 
 public class RandomUsersActivity extends AppCompatActivity {
 
-    private ArrayList<User>  users;
+    private ArrayList<User> users;
 
     private ActivityRandomUsersBinding activityRandomUsersBinding;
 
