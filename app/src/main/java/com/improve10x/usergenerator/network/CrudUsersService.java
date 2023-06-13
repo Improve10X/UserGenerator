@@ -11,14 +11,14 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-public interface UserService {
+public interface CrudUsersService {
 
     @GET("api/479dd07f8c1d482e9219f7dcb48e25f4/marsTemplates")
-    Call<List<User>> fetchUsers();
+    Call<List<User>> fetchCrudUsers();
 
     @POST("api/479dd07f8c1d482e9219f7dcb48e25f4/marsTemplates")
-    Call<User> createUser(@Body User user);
+    Call<User> createCrudUser(@Body User user);
 
     @DELETE("api/479dd07f8c1d482e9219f7dcb48e25f4/marsTemplates/{id}")
-    Call<Void> deleteUser(@Path("id") String id);
+    Call<Void> deleteCrudUser(@Path("id") String id);
 }

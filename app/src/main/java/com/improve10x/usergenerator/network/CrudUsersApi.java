@@ -7,9 +7,9 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class UserApi {
+public class CrudUsersApi {
 
-    public UserService createUserService() {
+    public CrudUsersService createCrudUsersService() {
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -24,7 +24,7 @@ public class UserApi {
                 .client(client)
                 .build();
 
-        UserService userService = retrofit.create(UserService.class);
+        CrudUsersService userService = retrofit.create(CrudUsersService.class);
         return userService;
     }
 }
