@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.generaterandomuser;
 
 import androidx.appcompat.app.AppCompatActivity;
 
