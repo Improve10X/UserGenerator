@@ -1,5 +1,7 @@
 package com.improve10x.usergenerator.randomNetwork;
 
+import com.improve10x.usergenerator.Constants;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -15,7 +17,7 @@ public class RandomPersonApi {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://peoplegeneratorapi.live/")
+                .baseUrl(Constants.RANDOM_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

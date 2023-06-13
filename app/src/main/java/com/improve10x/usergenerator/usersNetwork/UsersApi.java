@@ -1,5 +1,7 @@
 package com.improve10x.usergenerator.usersNetwork;
 
+import com.improve10x.usergenerator.Constants;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -17,7 +19,7 @@ public class UsersApi {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://crudcrud.com/api/479dd07f8c1d482e9219f7dcb48e25f4/")
+                .baseUrl(Constants.USER_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
