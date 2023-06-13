@@ -42,7 +42,7 @@ public class ExampleUnitTest {
     @Test
     public void createUser() throws IOException {
         CrudUserApi crudUserApi = new CrudUserApi();
-        CrudUserApiService crudUserApiService = crudUserApi.createCurdUserApiService();
+        CrudUserApiService crudUserApiService = crudUserApi.createCrudUserApiService();
         Address address = new Address("Telugu Peta", "Velugode", "Andhra pradesh",
                 "India", "zip", 1938, "9014523499", "bommal satram", "+91");
         User user = new User("surya", 23, "Android developer", 1929487,
@@ -59,7 +59,7 @@ public class ExampleUnitTest {
     @Test
     public void getUsers() throws IOException {
         CrudUserApi crudUserApi = new CrudUserApi();
-        CrudUserApiService crudUserApiService = crudUserApi.createCurdUserApiService();
+        CrudUserApiService crudUserApiService = crudUserApi.createCrudUserApiService();
         Call<List<User>> call = crudUserApiService.fetchUsers();
         List<User> users = call.execute().body();
         assertNotNull(users);
@@ -70,7 +70,7 @@ public class ExampleUnitTest {
     @Test
     public void deleteUser() throws IOException {
         CrudUserApi crudUserApi = new CrudUserApi();
-        CrudUserApiService crudUserApiService = crudUserApi.createCurdUserApiService();
+        CrudUserApiService crudUserApiService = crudUserApi.createCrudUserApiService();
         Call<Void> call = crudUserApiService.deleteUser("64870936c632b703e8303b25");
         call.execute();
     }
