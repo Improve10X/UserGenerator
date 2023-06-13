@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
 import com.improve10x.usergenerator.model.User;
+import com.improve10x.usergenerator.network.OnItemActionListener;
 
 import java.util.List;
 
@@ -15,10 +16,17 @@ public class GenerateRandomUsersAdapter extends RecyclerView.Adapter<GenerateRan
 
     private List<User> generateRandomUsers;
 
+    private OnItemActionListener onItemActionListener;
+
     void setGenerateRandomUsers(List<User> generateRandomUsers) {
         this.generateRandomUsers = generateRandomUsers;
         notifyDataSetChanged();
     }
+
+    void setOnItemActionListener(OnItemActionListener onItemActionListener) {
+        this.onItemActionListener = onItemActionListener;
+    }
+
     @NonNull
     @Override
     public GenerateRandomUserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -36,6 +44,9 @@ public class GenerateRandomUsersAdapter extends RecyclerView.Adapter<GenerateRan
         holder.binding.userIncomeTxt.setText("Income : $" + generateRandomUser.getIncomeUsd());
         holder.binding.userCreditScoreTxt.setText("Credit Score : " + generateRandomUser.getCreditScore());
         holder.binding.userAddressTxt.setText(generateRandomUser.getAddress().getStreetAddress() + ", " +generateRandomUser.getAddress().getCity() + ", " + generateRandomUser.getAddress().getZip());
+        holder.binding.saveBtn.setOnClickListener(v -> {
+            onItemActionListener.onSave(generateRandomUser);
+        });
     }
 
     @Override
