@@ -2,17 +2,14 @@ package com.improve10x.usergenerator.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Person {
+public class User {
     @SerializedName("_id")
     private String id;
-
     private String name;
     private Integer age;
     private String job;
-
-
-
-    private Integer incomeUSD;
+    @SerializedName("incomeUSD")
+    private Integer incomeUsd;
     private Integer creditScore;
     private String ccNumber;
     private Boolean married;
@@ -28,7 +25,8 @@ public class Person {
     private Float politicalLeaning;
     private String religion;
     private Address address;
-    private String doB;
+    @SerializedName("doB")
+    private String dateOfBirth;
     private Float gpa;
 
     public String getId() {
@@ -63,12 +61,12 @@ public class Person {
         this.job = job;
     }
 
-    public Integer getIncomeUSD() {
-        return incomeUSD;
+    public Integer getIncomeUsd() {
+        return incomeUsd;
     }
 
-    public void setIncomeUSD(Integer incomeUSD) {
-        this.incomeUSD = incomeUSD;
+    public void setIncomeUsd(Integer incomeUsd) {
+        this.incomeUsd = incomeUsd;
     }
 
     public Integer getCreditScore() {
@@ -160,7 +158,6 @@ public class Person {
     }
 
     public String getUsername() {
-
         return username;
     }
 
@@ -192,12 +189,12 @@ public class Person {
         this.address = address;
     }
 
-    public String getDoB() {
-        return doB;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setDoB(String doB) {
-        this.doB = doB;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Float getGpa() {
@@ -206,14 +203,13 @@ public class Person {
 
     public void setGpa(Float gpa) {
         this.gpa = gpa;
-
     }
 
-    public Person(String name, Integer age, String job, Integer incomeUSD, Integer creditScore, String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weight, String eyeColor, String email, String gender, Boolean hasDegree, String bloodType, String username, Float politicalLeaning, String religion, Address address, String doB, Float gpa) {
+    public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore, String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weight, String eyeColor, String email, String gender, Boolean hasDegree, String bloodType, String username, Float politicalLeaning, String religion, Address address, String dateOfBirth, Float gpa) {
         this.name = name;
         this.age = age;
         this.job = job;
-        this.incomeUSD = incomeUSD;
+        this.incomeUsd = incomeUsd;
         this.creditScore = creditScore;
         this.ccNumber = ccNumber;
         this.married = married;
@@ -229,7 +225,7 @@ public class Person {
         this.politicalLeaning = politicalLeaning;
         this.religion = religion;
         this.address = address;
-        this.doB = doB;
+        this.dateOfBirth = dateOfBirth;
         this.gpa = gpa;
     }
 }

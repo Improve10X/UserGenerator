@@ -1,6 +1,6 @@
 package com.improve10x.usergenerator.usersNetwork;
 
-import com.improve10x.usergenerator.model.Person;
+import com.improve10x.usergenerator.model.User;
 
 import java.util.List;
 
@@ -14,11 +14,11 @@ import retrofit2.http.Path;
 public interface UsersApiService {
 
     @GET("venusTemplates")
-    Call<List<Person>> getUsersDetails();
+    Call<List<User>> getUsers();
 
     @POST("venusTemplates")
-    Call<Person> createPersonDetails(@Body Person person);
+    Call<User> createUser(@Body User user);
 
     @DELETE("venusTemplates/{id}")
-    Call<Void> deletePersonDetails(@Path("id") String id);
+    Call<Void> deleteUser(@Path("id") String id);
 }

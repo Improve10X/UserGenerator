@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.Address;
-import com.improve10x.usergenerator.model.Person;
+import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.randomNetwork.RandomPersonApi;
 import com.improve10x.usergenerator.randomNetwork.RandomPersonApiService;
 import com.improve10x.usergenerator.usersNetwork.UsersApi;
@@ -29,42 +29,42 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void getRandomPersonsDetails() throws IOException {
-        RandomPersonApiService randomPersonApiService = new RandomPersonApi().createUserApiService();
-        Call<List<Person>> call = randomPersonApiService.getRandomPersonDetails();
-        List<Person> person = call.execute().body();
-        assertNotNull(person);
-        assertFalse(person.isEmpty());
-        System.out.println(new Gson().toJson(person));
+    public void getRandomPeople() throws IOException {
+        RandomPersonApiService randomPersonApiService = new RandomPersonApi().createRandomPersonApiService();
+        Call<List<User>> call = randomPersonApiService.getRandomPeople();
+        List<User> users = call.execute().body();
+        assertNotNull(users);
+        assertFalse(users.isEmpty());
+        System.out.println(new Gson().toJson(users));
     }
 
     @Test
-    public void getUserDetails() throws IOException {
+    public void getUsers() throws IOException {
         UsersApiService usersApiService = new UsersApi().createUserApiService();
-        Call<List<Person>> call = usersApiService.getUsersDetails();
-        List<Person> person = call.execute().body();
-        assertNotNull(person);
-        System.out.println(new Gson().toJson(person));
+        Call<List<User>> call = usersApiService.getUsers();
+        List<User> users = call.execute().body();
+        assertNotNull(users);
+        System.out.println(new Gson().toJson(users));
     }
 
     @Test
-    public void  addUserDetails() throws IOException {
+    public void addUser() throws IOException {
         UsersApiService usersApiService = new UsersApi().createUserApiService();
-        Address address = new Address("basireddy bavi Street","Kurnool","Andhrapradesh","India",
-                "5161",56789,"9526341521","433.2","IND");
-        Person person = new Person("Sai",20,"developer",567,57,"1234-3452",
-                false,false,156,5.6f,"black","sai@improve10x.com","female",true,"B+",
-                "sri",0.02f,"Hindu",address,"1995",1.0f);
-        Call<Person>  call = usersApiService.createPersonDetails(person);
-        Person person1 = call.execute().body();
-        assertNotNull(person1);
-        System.out.println(new Gson().toJson(person1));
+        Address address = new Address("basireddy bavi Street", "Kurnool", "Andhrapradesh", "India",
+                "5161", 56789, "9526341521", "433.2", "IND");
+        User user = new User("Sai", 20, "developer", 567, 57, "1234-3452",
+                false, false, 156, 5.6f, "black", "sai@improve10x.com", "female", true, "B+",
+                "sri", 0.02f, "Hindu", address, "1995", 1.0f);
+        Call<User> call = usersApiService.createUser(user);
+        User user1 = call.execute().body();
+        assertNotNull(user1);
+        System.out.println(new Gson().toJson(user1));
     }
 
     @Test
     public void deleteUser() throws IOException {
         UsersApiService usersApiService = new UsersApi().createUserApiService();
-        Call<Void> call = usersApiService.deletePersonDetails("6486fe56c632b703e8303ad5");
+        Call<Void> call = usersApiService.deleteUser("6486fe56c632b703e8303ad5");
         call.execute();
     }
 }
