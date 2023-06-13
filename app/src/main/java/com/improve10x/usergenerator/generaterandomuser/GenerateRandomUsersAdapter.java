@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.network.OnItemActionListener;
 
 import java.util.List;
 

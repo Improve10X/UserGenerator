@@ -10,7 +10,6 @@ import com.improve10x.usergenerator.databinding.ActivityGenerateRandomUsersBindi
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.CrudUserApi;
 import com.improve10x.usergenerator.network.CrudUserApiService;
-import com.improve10x.usergenerator.network.OnItemActionListener;
 import com.improve10x.usergenerator.network.PeopleGenerateApi;
 import com.improve10x.usergenerator.network.PeopleGenerateApiService;
 
