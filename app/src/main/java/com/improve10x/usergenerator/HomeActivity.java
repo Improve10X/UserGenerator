@@ -16,6 +16,14 @@ public class HomeActivity extends AppCompatActivity {
         activityHomeBinding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(activityHomeBinding.getRoot());
         handleGenerateRandomUsersBtn();
+        handleUsersBtn();
+    }
+
+    private void handleUsersBtn() {
+        activityHomeBinding.usersBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(this,UsersActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void handleGenerateRandomUsersBtn() {
