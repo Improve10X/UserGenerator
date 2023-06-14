@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class UsersActivity extends AppCompatActivity {
+import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
 
+public class UsersActivity extends AppCompatActivity {
+    private ActivityUsersBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
+        binding = ActivityUsersBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Users");
     }
 }
