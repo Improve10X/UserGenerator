@@ -17,10 +17,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        handleGenerateRandomUserBtn();
+        handleGenerateRandomUsersBtn();
     }
 
-    private void handleGenerateRandomUserBtn() {
+    private void handleGenerateRandomUsersBtn() {
         binding.generateRandomUsersBtn.setOnClickListener(v -> {
             Intent intent = new Intent(this, RandomUsersActivity.class);
             startActivity(intent);

@@ -1,5 +1,6 @@
 package com.improve10x.usergenerator.network.cruduserapi;
 
+import com.improve10x.usergenerator.Constants;
 import com.improve10x.usergenerator.model.User;
 
 import java.util.List;
@@ -13,12 +14,12 @@ import retrofit2.http.Path;
 
 public interface CrudUsersService {
 
-    @GET("479dd07f8c1d482e9219f7dcb48e25f4/mercuryTemplates")
+    @GET(Constants.CRUD_USER_END_POINT)
     Call<List<User>> fetchUsers();
 
-    @POST("479dd07f8c1d482e9219f7dcb48e25f4/mercuryTemplates")
+    @POST(Constants.CRUD_USER_END_POINT)
     Call<User> createUsers(@Body User user);
 
-    @DELETE("479dd07f8c1d482e9219f7dcb48e25f4/mercuryTemplates/{id}")
+    @DELETE(Constants.CRUD_USER_END_POINT + "/{id}")
     Call<Void> deleteUsers(@Path("id") String id);
 }
