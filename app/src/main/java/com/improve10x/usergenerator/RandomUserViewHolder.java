@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.randomuser;
+package com.improve10x.usergenerator;
 
 import androidx.recyclerview.widget.RecyclerView;
 
