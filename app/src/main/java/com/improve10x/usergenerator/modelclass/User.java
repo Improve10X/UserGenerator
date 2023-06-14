@@ -3,9 +3,6 @@ package com.improve10x.usergenerator.modelclass;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
-
-//    @SerializedName("_id")
-//    private String id;
     private String name;
     private Integer age;
     private String job;
@@ -15,27 +12,27 @@ public class User {
     private String ccNumber;
     private Boolean married;
     private Boolean hasChildren;
-    private Integer height;
-    private Float weight;
+    @SerializedName("height")
+    private Integer heightInCm;
+    @SerializedName("weight")
+    private Float weightInKgs;
     private String eyeColor;
     private String email;
     private String gender;
     private Boolean hasDegree;
     private String bloodType;
-    @SerializedName("username")
-    private String userName;
+    private String username;
     private Float politicalLeaning;
     private String religion;
     private Address address;
     @SerializedName("doB")
-    private String dOB;
+    private String dateOfBirth;
     private Float gpa;
 
     public User() {
-
     }
 
-    public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore, String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weight, String eyeColor, String email, String gender, Boolean hasDegree, String bloodType, String userName, Float politicalLeaning, String religion, Address address, String dOB, Float gpa) {
+    public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore, String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weightInKgs, String eyeColor, String email, String gender, Boolean hasDegree, String bloodType, String username, Float politicalLeaning, String religion, Address address, String dateOfBirth, Float gpa) {
         this.name = name;
         this.age = age;
         this.job = job;
@@ -44,18 +41,18 @@ public class User {
         this.ccNumber = ccNumber;
         this.married = married;
         this.hasChildren = hasChildren;
-        this.height = height;
-        this.weight = weight;
+        this.heightInCm = height;
+        this.weightInKgs = weightInKgs;
         this.eyeColor = eyeColor;
         this.email = email;
         this.gender = gender;
         this.hasDegree = hasDegree;
         this.bloodType = bloodType;
-        this.userName = userName;
+        this.username = username;
         this.politicalLeaning = politicalLeaning;
         this.religion = religion;
         this.address = address;
-        this.dOB = dOB;
+        this.dateOfBirth = dateOfBirth;
         this.gpa = gpa;
     }
 
@@ -123,20 +120,20 @@ public class User {
         this.hasChildren = hasChildren;
     }
 
-    public Integer getHeight() {
-        return height;
+    public Integer getHeightInCm() {
+        return heightInCm;
     }
 
-    public void setHeight(Integer height) {
-        this.height = height;
+    public void setHeightInCm(Integer heightInCm) {
+        this.heightInCm = heightInCm;
     }
 
-    public Float getWeight() {
-        return weight;
+    public Float getWeightInKgs() {
+        return weightInKgs;
     }
 
-    public void setWeight(Float weight) {
-        this.weight = weight;
+    public void setWeightInKgs(Float weightInKgs) {
+        this.weightInKgs = weightInKgs;
     }
 
     public String getEyeColor() {
@@ -179,12 +176,12 @@ public class User {
         this.bloodType = bloodType;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Float getPoliticalLeaning() {
@@ -211,12 +208,12 @@ public class User {
         this.address = address;
     }
 
-    public String getdOB() {
-        return dOB;
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void setdOB(String dOB) {
-        this.dOB = dOB;
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Float getGpa() {
