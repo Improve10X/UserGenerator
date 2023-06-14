@@ -18,6 +18,8 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
 
     private boolean showSave;
 
+    private boolean showDelete;
+
     public void setShowSave(boolean showSave) {
         this.showSave = showSave;
     }
@@ -25,8 +27,6 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
     public void setShowDelete(boolean showDelete) {
         this.showDelete = showDelete;
     }
-
-    private boolean showDelete;
 
 
     private OnItemActionListener onItemActionListener;
