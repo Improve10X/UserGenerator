@@ -65,9 +65,11 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         });
         if (showSave == false){
             holder.binding.saveBtn.setVisibility(View.GONE);
+            holder.binding.deleteBtn.setVisibility(View.VISIBLE);
         }
         if (showDelete == true){
             holder.binding.deleteBtn.setVisibility(View.VISIBLE);
+            holder.binding.saveBtn.setVisibility(View.GONE);
         }
     }
 
