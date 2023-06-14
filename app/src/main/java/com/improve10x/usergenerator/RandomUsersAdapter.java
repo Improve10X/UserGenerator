@@ -1,6 +1,7 @@
 package com.improve10x.usergenerator;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,16 @@ import java.util.List;
 public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolder> {
 
     private List<User> users;
+    private Boolean showSave = false;
+    private Boolean showDelete = false;
+
+    public void setShowSave(Boolean showSave) {
+        this.showSave = showSave;
+    }
+
+    public void setShowDelete(Boolean showDelete) {
+        this.showDelete = showDelete;
+    }
     private OnItemClickListener listener;
 
     public RandomUsersAdapter(List<User> users) {
@@ -25,6 +36,8 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         this.users = users;
         notifyDataSetChanged();
     }
+
+
 
     public void setOnItemListener(OnItemClickListener listener){
         this.listener = listener;
@@ -49,6 +62,16 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         holder.binding.locationTxt.setText(user.getAddress().getStreetAddress() + ", "
                 + user.getAddress().getCity() + ", " + user.getAddress().getCountryCode() +
                  user.getAddress().getZipCode());
+
+        if (showSave == true) {
+            holder.binding.saveBtn.setVisibility(View.VISIBLE);
+            holder.binding.deleteBtn.setVisibility(View.GONE);
+        }
+
+        if (showDelete == true) {
+            holder.binding.deleteBtn.setVisibility(View.VISIBLE);
+            holder.binding.saveBtn.setVisibility(View.GONE);
+        }
         holder.binding.saveBtn.setOnClickListener(v -> {
             listener.onClicked(user);
         });
