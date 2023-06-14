@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.network;
+package com.improve10x.usergenerator.network.crudnetwork;
 
 import com.improve10x.usergenerator.Constants;
 
@@ -12,11 +12,9 @@ public class CrudUserApi {
     public CrudUserApiService createCrudUserApiService() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
                 .build();
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.CRUD_USER_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())

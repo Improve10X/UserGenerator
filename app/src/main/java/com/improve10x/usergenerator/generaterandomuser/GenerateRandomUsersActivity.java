@@ -8,10 +8,10 @@ import android.widget.Toast;
 
 import com.improve10x.usergenerator.databinding.ActivityGenerateRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.network.CrudUserApi;
-import com.improve10x.usergenerator.network.CrudUserApiService;
-import com.improve10x.usergenerator.network.PeopleGenerateApi;
-import com.improve10x.usergenerator.network.PeopleGenerateApiService;
+import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
+import com.improve10x.usergenerator.network.crudnetwork.CrudUserApiService;
+import com.improve10x.usergenerator.network.pepolegeneratornetwork.PeopleGeneratorApi;
+import com.improve10x.usergenerator.network.pepolegeneratornetwork.PeopleGeneratorApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +22,8 @@ import retrofit2.Response;
 
 public class GenerateRandomUsersActivity extends AppCompatActivity {
 
-    private ArrayList<User> generateRandomUsers = new ArrayList<>();
-    private GenerateRandomUsersAdapter generateRandomUsersAdapter;
+    private ArrayList<User> users = new ArrayList<>();
+    private GeneratorRandomUsersAdapter generatorRandomUsersAdapter;
     private ActivityGenerateRandomUsersBinding binding;
 
     @Override
@@ -33,19 +33,19 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Random Users");
         getGenerateRandomUsers();
-        setupGenerateRandomUsersAdapter();
-        setupGenerateRandomUsersRv();
+        setupAdapter();
+        setupRecyclerView();
     }
 
     private void getGenerateRandomUsers() {
-        PeopleGenerateApi peopleGenerateApi = new PeopleGenerateApi();
-        PeopleGenerateApiService peopleGenerateApiService = peopleGenerateApi.createPeopleGenerateApiService();
-        Call<List<User>> call = peopleGenerateApiService.fetchPeopleGenerateUsers();
+        PeopleGeneratorApi peopleGeneratorApi = new PeopleGeneratorApi();
+        PeopleGeneratorApiService peopleGeneratorApiService = peopleGeneratorApi.createPeopleGeneratorApiService();
+        Call<List<User>> call = peopleGeneratorApiService.fetchGeneratorUsers();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> generateRandomUsers = response.body();
-                generateRandomUsersAdapter.setGenerateRandomUsers(generateRandomUsers);
+                generatorRandomUsersAdapter.setUsers(generateRandomUsers);
                 Toast.makeText(GenerateRandomUsersActivity.this, "Successfully Loaded Data", Toast.LENGTH_SHORT).show();
             }
 
@@ -56,10 +56,10 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
         });
     }
 
-    private void setupGenerateRandomUsersAdapter() {
-        generateRandomUsersAdapter = new GenerateRandomUsersAdapter();
-        generateRandomUsersAdapter.setGenerateRandomUsers(generateRandomUsers);
-        generateRandomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
+    private void setupAdapter() {
+        generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
+        generatorRandomUsersAdapter.setUsers(users);
+        generatorRandomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onSave(User user) {
                 createUser(user);
@@ -67,9 +67,9 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
         });
     }
 
-    private void setupGenerateRandomUsersRv() {
+    private void setupRecyclerView() {
         binding.generateRandomUsersRv.setLayoutManager(new LinearLayoutManager(this));
-        binding.generateRandomUsersRv.setAdapter(generateRandomUsersAdapter);
+        binding.generateRandomUsersRv.setAdapter(generatorRandomUsersAdapter);
     }
 
     private void createUser(User user) {

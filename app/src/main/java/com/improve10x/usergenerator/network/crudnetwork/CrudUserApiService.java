@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.network;
+package com.improve10x.usergenerator.network.crudnetwork;
 
 import com.improve10x.usergenerator.model.User;
 
@@ -13,12 +13,12 @@ import retrofit2.http.Path;
 
 public interface CrudUserApiService {
 
-    @POST("479dd07f8c1d482e9219f7dcb48e25f4/earthTemplates")
+    @POST("earthTemplates")
     Call<User> createUser(@Body User user);
 
-    @GET("479dd07f8c1d482e9219f7dcb48e25f4/earthTemplates")
+    @GET("earthTemplates")
     Call<List<User>> fetchUsers();
 
-    @DELETE("479dd07f8c1d482e9219f7dcb48e25f4/earthTemplates/{id}")
+    @DELETE("earthTemplates/{id}")
     Call<Void> deleteUser(@Path("id") String id);
 }

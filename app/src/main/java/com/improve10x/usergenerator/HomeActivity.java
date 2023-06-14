@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.improve10x.usergenerator.databinding.ActivityGenerateRandomUsersBinding;
 import com.improve10x.usergenerator.databinding.ActivityHomeBinding;
 import com.improve10x.usergenerator.generaterandomuser.GenerateRandomUsersActivity;
 
 public class HomeActivity extends AppCompatActivity {
-
     private ActivityHomeBinding binding;
 
     @Override
@@ -18,10 +16,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        handleGenerateRandomButton();
+        handleGenerateRandomUsersBtn();
     }
 
-    private void handleGenerateRandomButton() {
+    private void handleGenerateRandomUsersBtn() {
         binding.generateRandomUsersBtn.setOnClickListener(v -> {
             Intent intent = new Intent(this, GenerateRandomUsersActivity.class);
             startActivity(intent);

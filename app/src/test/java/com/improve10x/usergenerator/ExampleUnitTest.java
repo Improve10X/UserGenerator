@@ -7,10 +7,10 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.Address;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.network.CrudUserApiService;
-import com.improve10x.usergenerator.network.CrudUserApi;
-import com.improve10x.usergenerator.network.PeopleGenerateApi;
-import com.improve10x.usergenerator.network.PeopleGenerateApiService;
+import com.improve10x.usergenerator.network.crudnetwork.CrudUserApiService;
+import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
+import com.improve10x.usergenerator.network.pepolegeneratornetwork.PeopleGeneratorApi;
+import com.improve10x.usergenerator.network.pepolegeneratornetwork.PeopleGeneratorApiService;
 
 import java.io.IOException;
 import java.util.List;
@@ -30,9 +30,9 @@ public class ExampleUnitTest {
 
     @Test
     public void getPeopleGenerateUsers() throws IOException {
-        PeopleGenerateApi peopleGenerateApi = new PeopleGenerateApi();
-        PeopleGenerateApiService peopleGenerateApiService = peopleGenerateApi.createPeopleGenerateApiService();
-        Call<List<User>> call = peopleGenerateApiService.fetchPeopleGenerateUsers();
+        PeopleGeneratorApi peopleGeneratorApi = new PeopleGeneratorApi();
+        PeopleGeneratorApiService peopleGeneratorApiService = peopleGeneratorApi.createPeopleGeneratorApiService();
+        Call<List<User>> call = peopleGeneratorApiService.fetchGeneratorUsers();
         List<User> users = call.execute().body();
         assertNotNull(users);
         assertFalse(users.isEmpty());
