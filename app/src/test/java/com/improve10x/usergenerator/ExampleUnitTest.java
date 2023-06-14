@@ -56,9 +56,9 @@ public class ExampleUnitTest {
                 false, false, 156, 5.6f, "black", "sai@improve10x.com", "female", true, "B+",
                 "sri", 0.02f, "Hindu", address, "1995", 1.0f);
         Call<User> call = usersApiService.createUser(user);
-        User user1 = call.execute().body();
-        assertNotNull(user1);
-        System.out.println(new Gson().toJson(user1));
+        User randomUser = call.execute().body();
+        assertNotNull(randomUser);
+        System.out.println(new Gson().toJson(randomUser));
     }
 
     @Test
