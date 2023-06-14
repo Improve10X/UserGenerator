@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.network;
+package com.improve10x.usergenerator.network.cruduserapi;
 
 import com.improve10x.usergenerator.model.User;
 

@@ -7,10 +7,10 @@ import static org.junit.Assert.*;
 import com.google.gson.Gson;
 import com.improve10x.usergenerator.model.Address;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.network.CrudUserApi;
-import com.improve10x.usergenerator.network.CrudUsersService;
-import com.improve10x.usergenerator.network.PeopleApi;
-import com.improve10x.usergenerator.network.RandomPeopleService;
+import com.improve10x.usergenerator.network.cruduserapi.CrudUserApi;
+import com.improve10x.usergenerator.network.cruduserapi.CrudUsersService;
+import com.improve10x.usergenerator.network.randompeopleapi.PeopleApi;
+import com.improve10x.usergenerator.network.randompeopleapi.RandomPeopleService;
 
 import java.io.IOException;
 import java.util.List;

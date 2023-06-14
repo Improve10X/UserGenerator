@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.network;
+package com.improve10x.usergenerator.network.randompeopleapi;
 
 import com.improve10x.usergenerator.Constants;
 import com.improve10x.usergenerator.model.User;
@@ -11,6 +11,6 @@ import retrofit2.http.GET;
 
 public interface RandomPeopleService {
 
-    @GET(Constants.PEOPLE_END_POINT)
+    @GET(Constants.RANDOM_PEOPLE_END_POINT)
     Call<List<User>> fetchRandomPeople();
 }
