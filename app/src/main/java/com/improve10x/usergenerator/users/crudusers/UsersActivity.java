@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.crudusers;
+package com.improve10x.usergenerator.users.crudusers;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.usergenerator.GeneratorRandomUsersAdapter;
+import com.improve10x.usergenerator.users.UsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
-import com.improve10x.usergenerator.generaterandomuser.OnItemActionListener;
+import com.improve10x.usergenerator.users.OnItemActionListener;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApiService;
@@ -23,8 +23,9 @@ import retrofit2.Response;
 public class UsersActivity extends AppCompatActivity {
 
     private ActivityUsersBinding binding;
-    private GeneratorRandomUsersAdapter generatorRandomUsersAdapter;
+    private UsersAdapter usersAdapter;
     private ArrayList<User> users = new ArrayList<>();
+    private CrudUserApiService crudUserApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +39,14 @@ public class UsersActivity extends AppCompatActivity {
     }
 
     private void getUsers() {
-        CrudUserApi crudUserApi = new CrudUserApi();
-        CrudUserApiService crudUserApiService = crudUserApi.createCrudUserApiService();
+        createCrudUserApiService();
         Call<List<User>> call = crudUserApiService.fetchUsers();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if (response.isSuccessful()) {
                     List<User> users = response.body();
-                    generatorRandomUsersAdapter.setUsers(users);
+                    usersAdapter.setUsers(users);
                 }
             }
 
@@ -58,15 +58,15 @@ public class UsersActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        binding.usersRv.setAdapter(generatorRandomUsersAdapter);
+        binding.usersRv.setAdapter(usersAdapter);
         binding.usersRv.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void setupAdapter() {
-        generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
-        generatorRandomUsersAdapter.setUsers(users);
-        generatorRandomUsersAdapter.setShowDeleteBtn(true);
-        generatorRandomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
+        usersAdapter = new UsersAdapter();
+        usersAdapter.setUsers(users);
+        usersAdapter.setShowDeleteBtn(true);
+        usersAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onSave(User user) {
             }
@@ -79,8 +79,7 @@ public class UsersActivity extends AppCompatActivity {
     }
 
     private void deleteUser(String id) {
-        CrudUserApi api = new CrudUserApi();
-        CrudUserApiService crudUserApiService = api.createCrudUserApiService();
+        createCrudUserApiService();
         Call<Void> call = crudUserApiService.deleteUser(id);
         call.enqueue(new Callback<Void>() {
             @Override
@@ -94,5 +93,10 @@ public class UsersActivity extends AppCompatActivity {
                 Toast.makeText(UsersActivity.this, "Failed to delete user", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void createCrudUserApiService() {
+        CrudUserApi api = new CrudUserApi();
+        crudUserApiService = api.createCrudUserApiService();
     }
 }

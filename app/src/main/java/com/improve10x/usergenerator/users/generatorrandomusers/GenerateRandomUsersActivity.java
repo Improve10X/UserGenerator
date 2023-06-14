@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.generaterandomuser;
+package com.improve10x.usergenerator.users.generatorrandomusers;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.usergenerator.GeneratorRandomUsersAdapter;
+import com.improve10x.usergenerator.users.OnItemActionListener;
+import com.improve10x.usergenerator.users.UsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityGenerateRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
@@ -24,7 +25,7 @@ import retrofit2.Response;
 public class GenerateRandomUsersActivity extends AppCompatActivity {
 
     private ArrayList<User> users = new ArrayList<>();
-    private GeneratorRandomUsersAdapter generatorRandomUsersAdapter;
+    private UsersAdapter usersAdapter;
     private ActivityGenerateRandomUsersBinding binding;
 
     @Override
@@ -46,7 +47,7 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> generateRandomUsers = response.body();
-                generatorRandomUsersAdapter.setUsers(generateRandomUsers);
+                usersAdapter.setUsers(generateRandomUsers);
                 Toast.makeText(GenerateRandomUsersActivity.this, "Successfully Loaded Data", Toast.LENGTH_SHORT).show();
             }
 
@@ -58,10 +59,10 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
     }
 
     private void setupAdapter() {
-        generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
-        generatorRandomUsersAdapter.setUsers(users);
-        generatorRandomUsersAdapter.setShowSaveBtn(true);
-        generatorRandomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
+        usersAdapter = new UsersAdapter();
+        usersAdapter.setUsers(users);
+        usersAdapter.setShowSaveBtn(true);
+        usersAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onSave(User user) {
                 createUser(user);
@@ -75,7 +76,7 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         binding.generateRandomUsersRv.setLayoutManager(new LinearLayoutManager(this));
-        binding.generateRandomUsersRv.setAdapter(generatorRandomUsersAdapter);
+        binding.generateRandomUsersRv.setAdapter(usersAdapter);
     }
 
     private void createUser(User user) {

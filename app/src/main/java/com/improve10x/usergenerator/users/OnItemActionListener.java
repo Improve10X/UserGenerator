@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.generaterandomuser;
+package com.improve10x.usergenerator.users;
 
 import com.improve10x.usergenerator.model.User;
 
