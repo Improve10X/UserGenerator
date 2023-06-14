@@ -9,16 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
 import com.improve10x.usergenerator.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class RandomUserAdapter extends RecyclerView.Adapter<RandomViewHolder> {
+public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
 
     private List<User> users;
-
     private OnItemActionListener actionListener;
 
-     void setActionListener(OnItemActionListener actionListener) {
+    void setActionListener(OnItemActionListener actionListener) {
         this.actionListener = actionListener;
     }
 
@@ -30,8 +28,8 @@ public class RandomUserAdapter extends RecyclerView.Adapter<RandomViewHolder> {
     @NonNull
     @Override
     public RandomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       RandomUserItemBinding randomUserItemBinding = RandomUserItemBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
-       RandomViewHolder randomViewHolder = new RandomViewHolder(randomUserItemBinding);
+        RandomUserItemBinding randomUserItemBinding = RandomUserItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        RandomViewHolder randomViewHolder = new RandomViewHolder(randomUserItemBinding);
         return randomViewHolder;
     }
 

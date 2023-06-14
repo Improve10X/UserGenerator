@@ -14,8 +14,10 @@ public class User {
     private String ccNumber;
     private Boolean married;
     private Boolean hasChildren;
-    private Integer height;
-    private Float weight;
+    @SerializedName("height")
+    private Integer heightInCms;
+    @SerializedName("weight")
+    private Float weightInKgs;
     private String eyeColor;
     private String email;
     private String gender;
@@ -28,6 +30,33 @@ public class User {
     @SerializedName("doB")
     private String dateOfBirth;
     private Float gpa;
+
+    public User(){
+    }
+
+    public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore, String ccNumber, Boolean married, Boolean hasChildren, Integer heightInCms, Float weightInKgs, String eyeColor, String email, String gender, Boolean hasDegree, String bloodType, String username, Float politicalLeaning, String religion, Address address, String dateOfBirth, Float gpa) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.incomeUsd = incomeUsd;
+        this.creditScore = creditScore;
+        this.ccNumber = ccNumber;
+        this.married = married;
+        this.hasChildren = hasChildren;
+        this.heightInCms = heightInCms;
+        this.weightInKgs = weightInKgs;
+        this.eyeColor = eyeColor;
+        this.email = email;
+        this.gender = gender;
+        this.hasDegree = hasDegree;
+        this.bloodType = bloodType;
+        this.username = username;
+        this.politicalLeaning = politicalLeaning;
+        this.religion = religion;
+        this.address = address;
+        this.dateOfBirth = dateOfBirth;
+        this.gpa = gpa;
+    }
 
     public String getId() {
         return id;
@@ -101,20 +130,20 @@ public class User {
         this.hasChildren = hasChildren;
     }
 
-    public Integer getHeight() {
-        return height;
+    public Integer getHeightInCms() {
+        return heightInCms;
     }
 
-    public void setHeight(Integer height) {
-        this.height = height;
+    public void setHeightInCms(Integer heightInCms) {
+        this.heightInCms = heightInCms;
     }
 
-    public Float getWeight() {
-        return weight;
+    public Float getWeightInKgs() {
+        return weightInKgs;
     }
 
-    public void setWeight(Float weight) {
-        this.weight = weight;
+    public void setWeightInKgs(Float weightInKgs) {
+        this.weightInKgs = weightInKgs;
     }
 
     public String getEyeColor() {
@@ -202,30 +231,6 @@ public class User {
     }
 
     public void setGpa(Float gpa) {
-        this.gpa = gpa;
-    }
-
-    public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore, String ccNumber, Boolean married, Boolean hasChildren, Integer height, Float weight, String eyeColor, String email, String gender, Boolean hasDegree, String bloodType, String username, Float politicalLeaning, String religion, Address address, String dateOfBirth, Float gpa) {
-        this.name = name;
-        this.age = age;
-        this.job = job;
-        this.incomeUsd = incomeUsd;
-        this.creditScore = creditScore;
-        this.ccNumber = ccNumber;
-        this.married = married;
-        this.hasChildren = hasChildren;
-        this.height = height;
-        this.weight = weight;
-        this.eyeColor = eyeColor;
-        this.email = email;
-        this.gender = gender;
-        this.hasDegree = hasDegree;
-        this.bloodType = bloodType;
-        this.username = username;
-        this.politicalLeaning = politicalLeaning;
-        this.religion = religion;
-        this.address = address;
-        this.dateOfBirth = dateOfBirth;
         this.gpa = gpa;
     }
 }

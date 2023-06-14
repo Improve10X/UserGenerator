@@ -8,8 +8,7 @@ import android.os.Bundle;
 import com.improve10x.usergenerator.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends AppCompatActivity {
-    ActivityHomeBinding activityHomeBinding;
-
+    private ActivityHomeBinding activityHomeBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void handleGenerateRandomUsersBtn() {
         activityHomeBinding.randomUserBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this,RandomUsersActivity.class);
+            Intent intent = new Intent(this, RandomUsersActivity.class);
             startActivity(intent);
         });
     }

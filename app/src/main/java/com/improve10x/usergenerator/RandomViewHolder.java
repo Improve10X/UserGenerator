@@ -9,6 +9,7 @@ import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
 
 public class RandomViewHolder extends RecyclerView.ViewHolder {
     RandomUserItemBinding randomUserItemBinding;
+
     public RandomViewHolder(@NonNull RandomUserItemBinding randomUserItemBinding) {
         super(randomUserItemBinding.getRoot());
         this.randomUserItemBinding = randomUserItemBinding;

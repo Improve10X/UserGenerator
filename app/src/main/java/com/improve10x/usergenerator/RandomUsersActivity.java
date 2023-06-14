@@ -3,16 +3,15 @@ package com.improve10x.usergenerator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
-import com.improve10x.usergenerator.randomNetwork.RandomPeopleApi;
-import com.improve10x.usergenerator.randomNetwork.RandomPeopleApiService;
-import com.improve10x.usergenerator.usersNetwork.UsersApi;
-import com.improve10x.usergenerator.usersNetwork.UsersApiService;
+import com.improve10x.usergenerator.network.randomNetwork.RandomPeopleApi;
+import com.improve10x.usergenerator.network.randomNetwork.RandomPeopleApiService;
+import com.improve10x.usergenerator.network.usersNetwork.UsersApi;
+import com.improve10x.usergenerator.network.usersNetwork.UsersApiService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +22,13 @@ import retrofit2.Response;
 
 public class RandomUsersActivity extends AppCompatActivity {
 
-    private ArrayList<User>  users = new ArrayList<>();
+    private ArrayList<User> users = new ArrayList<>();
 
     private ActivityRandomUsersBinding activityRandomUsersBinding;
 
-    private RandomUserAdapter randomUserAdapter;
+    private RandomUsersAdapter randomUsersAdapter;
+
+    private RandomPeopleApiService randomPeopleApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +36,20 @@ public class RandomUsersActivity extends AppCompatActivity {
         activityRandomUsersBinding = ActivityRandomUsersBinding.inflate(getLayoutInflater());
         setContentView(activityRandomUsersBinding.getRoot());
         getSupportActionBar().setTitle("Random User");
-        connectAdapter();
-        setupAdapter();
         fetchRandomUsers();
+        setupAdapter();
+        setupRandomUsersRv();
     }
 
-    private void connectAdapter() {
-        randomUserAdapter = new RandomUserAdapter();
-        randomUserAdapter.setUsers(users);
-        randomUserAdapter.setActionListener(new OnItemActionListener() {
+    private void setupRandomUsersRv() {
+        activityRandomUsersBinding.randomUserRv.setLayoutManager(new LinearLayoutManager(this));
+        activityRandomUsersBinding.randomUserRv.setAdapter(randomUsersAdapter);
+    }
+
+    private void setupAdapter() {
+        randomUsersAdapter = new RandomUsersAdapter();
+        randomUsersAdapter.setUsers(users);
+        randomUsersAdapter.setActionListener(new OnItemActionListener() {
             @Override
             public void saveUser(User user) {
                 addUser(user);
@@ -51,47 +57,46 @@ public class RandomUsersActivity extends AppCompatActivity {
         });
     }
 
-    private void setupAdapter() {
-        activityRandomUsersBinding.randomUserRv.setLayoutManager(new LinearLayoutManager(this));
-        activityRandomUsersBinding.randomUserRv.setAdapter(randomUserAdapter);
+    private void setupRandomUsersApiService() {
+        RandomPeopleApi randomPeopleApi = new RandomPeopleApi();
+        randomPeopleApiService = randomPeopleApi.createRandomPeopleApiService();
     }
 
     private void fetchRandomUsers() {
-        RandomPeopleApi randomPeopleApi = new RandomPeopleApi();
-        RandomPeopleApiService randomPeopleApiService = randomPeopleApi.createRandomPeopleApiService();
+        setupRandomUsersApiService();
         Call<List<User>> call = randomPeopleApiService.getRandomPeople();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if (response.isSuccessful()) {
                     List<User> userList = response.body();
-                    randomUserAdapter.setUsers(userList);
-                    Toast.makeText(RandomUsersActivity.this, "Successfully Fetched the data", Toast.LENGTH_SHORT).show();
+                    randomUsersAdapter.setUsers(userList);
                 }
             }
+
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(RandomUsersActivity.this, "Failed to Fetch the data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RandomUsersActivity.this, "Failed to fetch the data", Toast.LENGTH_SHORT).show();
             }
         });
     }
-    public void addUser(User user){
-       UsersApi usersApi = new UsersApi();
-       UsersApiService usersApiService = usersApi.createUserApiService();
-       Call<User> call = usersApiService.createUser(user);
-       call.enqueue(new Callback<User>() {
-           @Override
-           public void onResponse(Call<User> call, Response<User> response) {
-               if (response.isSuccessful()){
-                   Toast.makeText(RandomUsersActivity.this, "Success", Toast.LENGTH_SHORT).show();
-               finish();
-               }
-           }
 
-           @Override
-           public void onFailure(Call<User> call, Throwable t) {
-               Toast.makeText(RandomUsersActivity.this, "Failure", Toast.LENGTH_SHORT).show();
-           }
-       });
+    public void addUser(User user) {
+        UsersApi usersApi = new UsersApi();
+        UsersApiService usersApiService = usersApi.createUserApiService();
+        Call<User> call = usersApiService.createUser(user);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(RandomUsersActivity.this, "Failed to add the data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

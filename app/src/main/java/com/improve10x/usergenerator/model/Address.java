@@ -1,24 +1,31 @@
 package com.improve10x.usergenerator.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Address {
 
     private String streetAddress;
     private String city;
     private String state;
     private String country;
-    private String zip;
-    private Integer geonameId;
+    @SerializedName("zip")
+    private String zipCode;
+    @SerializedName("geonameId")
+    private Integer geoNameId;
     private String phoneNumber;
     private String ipAddress;
     private String countryCode;
 
-    public Address(String streetAddress, String city, String state, String country, String zip, Integer geonameId, String phoneNumber, String ipAddress, String countryCode) {
+    public Address() {
+    }
+
+    public Address(String streetAddress, String city, String state, String country, String zipCode, Integer geoNameId, String phoneNumber, String ipAddress, String countryCode) {
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
         this.country = country;
-        this.zip = zip;
-        this.geonameId = geonameId;
+        this.zipCode = zipCode;
+        this.geoNameId = geoNameId;
         this.phoneNumber = phoneNumber;
         this.ipAddress = ipAddress;
         this.countryCode = countryCode;
@@ -56,20 +63,20 @@ public class Address {
         this.country = country;
     }
 
-    public String getZip() {
-        return zip;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
-    public Integer getGeonameId() {
-        return geonameId;
+    public Integer getGeoNameId() {
+        return geoNameId;
     }
 
-    public void setGeonameId(Integer geonameId) {
-        this.geonameId = geonameId;
+    public void setGeoNameId(Integer geoNameId) {
+        this.geoNameId = geoNameId;
     }
 
     public String getPhoneNumber() {
