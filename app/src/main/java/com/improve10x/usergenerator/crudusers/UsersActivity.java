@@ -64,5 +64,6 @@ public class UsersActivity extends AppCompatActivity {
     private void setupAdapter() {
         generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
         generatorRandomUsersAdapter.setUsers(users);
+        generatorRandomUsersAdapter.setShowDelete(true);
     }
 }
