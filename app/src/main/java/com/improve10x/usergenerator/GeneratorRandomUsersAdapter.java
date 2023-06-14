@@ -23,7 +23,7 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
         notifyDataSetChanged();
     }
 
-    void setOnItemActionListener(OnItemActionListener onItemActionListener) {
+    public void setOnItemActionListener(OnItemActionListener onItemActionListener) {
         this.onItemActionListener = onItemActionListener;
     }
 
