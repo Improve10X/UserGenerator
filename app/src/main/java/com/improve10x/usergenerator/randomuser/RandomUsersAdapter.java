@@ -1,6 +1,7 @@
 package com.improve10x.usergenerator.randomuser;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,16 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
 
     private List<User> users;
     private OnItemClickListener listener;
+    private Boolean showSave = false;
+    private Boolean showDelete = false;
+
+    public void setShowSave(Boolean showSave) {
+        this.showSave = showSave;
+    }
+
+    public void setShowDelete(Boolean showDelete){
+        this.showDelete = showDelete;
+    }
 
     public RandomUsersAdapter(List<User> users) {
         this.users = users;
@@ -53,6 +64,11 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         holder.binding.saveBtn.setOnClickListener(v -> {
             listener.onClicked(user);
         });
+        if (showSave == false){
+            holder.binding.saveBtn.setVisibility(View.GONE);
+        }
+        if (showDelete == true){
+        }
     }
 
     @Override
