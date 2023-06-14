@@ -11,14 +11,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Users"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/random_user_btn"
+        app:layout_constraintEnd_toEndOf="@+id/random_user_btn"
+        app:layout_constraintStart_toStartOf="@+id/random_user_btn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/random_user_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
