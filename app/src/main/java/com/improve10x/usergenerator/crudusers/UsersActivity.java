@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.usergenerator.CrudUsersAdapter;
+import com.improve10x.usergenerator.GeneratorRandomUsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
@@ -22,7 +22,7 @@ import retrofit2.Response;
 public class UsersActivity extends AppCompatActivity {
 
     private ActivityUsersBinding binding;
-    private CrudUsersAdapter crudUsersAdapter;
+    private GeneratorRandomUsersAdapter generatorRandomUsersAdapter;
     private ArrayList<User> users = new ArrayList<>();
 
     @Override
@@ -45,7 +45,7 @@ public class UsersActivity extends AppCompatActivity {
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if (response.isSuccessful()) {
                     List<User> users = response.body();
-                    crudUsersAdapter.setUsers(users);
+                    generatorRandomUsersAdapter.setUsers(users);
                 }
             }
 
@@ -57,12 +57,12 @@ public class UsersActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        binding.usersRv.setAdapter(crudUsersAdapter);
+        binding.usersRv.setAdapter(generatorRandomUsersAdapter);
         binding.usersRv.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void setupAdapter() {
-        crudUsersAdapter = new CrudUsersAdapter();
-        crudUsersAdapter.setUsers(users);
+        generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
+        generatorRandomUsersAdapter.setUsers(users);
     }
 }
