@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.randomuser;
+package com.improve10x.usergenerator;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
 import com.improve10x.usergenerator.model.User;
+import com.improve10x.usergenerator.randomuser.OnItemClickListener;
 
 import java.util.List;
-
-import retrofit2.Call;
 
 public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolder> {
 
@@ -33,12 +32,12 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         this.users = users;
     }
 
-    void setData(List<User> users) {
+     public void setData(List<User> users) {
         this.users = users;
         notifyDataSetChanged();
     }
 
-    void setOnItemListener(OnItemClickListener listener){
+    public void setOnItemListener(OnItemClickListener listener){
         this.listener = listener;
     }
 
