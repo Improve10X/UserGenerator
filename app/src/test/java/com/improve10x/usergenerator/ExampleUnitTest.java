@@ -48,7 +48,7 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void createCrudUsersApi() throws IOException {
+    public void createCrudUserApi() throws IOException {
         CrudUsersService crudUsersService = new CrudUserApi().createCrudUserService();
         Address address = new Address("Ngo's colony", "nandyal", "Ap",
                 "India", "zip", 518533,
@@ -59,8 +59,8 @@ public class ExampleUnitTest {
                 "male", true, "A+", "teja",
                 0.00f, "hindu", address, "2001", 9.99f);
         Call<User> call = crudUsersService.createUsers(user);
-        User user1 = call.execute().body();
-        assertNotNull(user1);
-        System.out.println(new Gson().toJson(user1));
+        User responseUser = call.execute().body();
+        assertNotNull(responseUser);
+        System.out.println(new Gson().toJson(responseUser));
     }
 }
