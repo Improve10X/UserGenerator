@@ -31,7 +31,6 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         User user = users.get(position);
         holder.binding.nameTxt.setText(user.getName());
         holder.binding.emailTxt.setText(user.getEmail());
-        holder.binding.incomeTxt.setText(user.getIncomeUsd());
 
     }
 
