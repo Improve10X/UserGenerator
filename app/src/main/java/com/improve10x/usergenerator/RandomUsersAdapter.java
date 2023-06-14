@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.randomuser.OnItemClickListener;
+import com.improve10x.usergenerator.users.OnClickListener;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
 
     private List<User> users;
     private OnItemClickListener listener;
+    private OnClickListener clickListener;
     private boolean showSave = false;
     private boolean showDelete = false;
 
@@ -32,19 +34,23 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         this.users = users;
     }
 
-     public void setData(List<User> users) {
+    public void setData(List<User> users) {
         this.users = users;
         notifyDataSetChanged();
     }
 
-    public void setOnItemListener(OnItemClickListener listener){
+    public void setOnClickListener(OnItemClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnClickListener(OnClickListener clickListener) {
+        this.clickListener = clickListener;
     }
 
     @NonNull
     @Override
     public RandomUserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RandomUserItemBinding randomUserItemBinding = RandomUserItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent,false);
+        RandomUserItemBinding randomUserItemBinding = RandomUserItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         RandomUserViewHolder randomUserViewHolder = new RandomUserViewHolder(randomUserItemBinding);
         return randomUserViewHolder;
     }
@@ -59,7 +65,7 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         holder.binding.incomeTxt.setText(String.valueOf(user.getIncomeUsd()));
         holder.binding.locationTxt.setText(user.getAddress().getStreetAddress() + ", "
                 + user.getAddress().getCity() + ", " + user.getAddress().getCountryCode() +
-                 user.getAddress().getZipCode());
+                user.getAddress().getZipCode());
         if (showSave == true) {
             holder.binding.saveBtn.setVisibility(View.VISIBLE);
             holder.binding.deleteBtn.setVisibility(View.GONE);
@@ -69,7 +75,10 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
             holder.binding.saveBtn.setVisibility(View.GONE);
         }
         holder.binding.saveBtn.setOnClickListener(v -> {
-            listener.onClicked(user);
+            listener.onSaveClicked(user);
+        });
+        holder.binding.deleteBtn.setOnClickListener(v -> {
+            clickListener.onDeleteClicked(user.getId());
         });
     }
 

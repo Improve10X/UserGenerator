@@ -40,9 +40,9 @@ public class RandomUsersActivity extends AppCompatActivity {
     private void setupAdapter () {
         randomUsersAdapter = new RandomUsersAdapter(users);
         randomUsersAdapter.setShowSave(true);
-        randomUsersAdapter.setOnItemListener(new OnItemClickListener() {
+        randomUsersAdapter.setOnClickListener(new OnItemClickListener() {
             @Override
-            public void onClicked(User user) {
+            public void onSaveClicked(User user) {
                 createUser(user);
             }
         });

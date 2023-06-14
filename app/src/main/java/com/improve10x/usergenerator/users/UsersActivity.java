@@ -34,7 +34,21 @@ public class UsersActivity extends AppCompatActivity {
         setupApi();
         setupAdapter();
         setupUsersRv();
-        fetchCrudUsers();
+    }
+
+    private void deleteCrudUser(String id) {
+        Call<Void> call = crudUsersService.deleteUsers(id);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                fetchCrudUsers();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(UsersActivity.this, "failed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setupApi() {
@@ -45,6 +59,12 @@ public class UsersActivity extends AppCompatActivity {
     private void setupAdapter() {
         adapter = new RandomUsersAdapter(users);
         adapter.setShowDelete(true);
+        adapter.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onDeleteClicked(String id) {
+                deleteCrudUser(id);
+            }
+        });
     }
 
     private void setupUsersRv() {
@@ -52,7 +72,7 @@ public class UsersActivity extends AppCompatActivity {
         binding.usersRv.setAdapter(adapter);
     }
 
-    private void fetchCrudUsers(){
+    private void fetchCrudUsers() {
         Call<List<User>> call = crudUsersService.fetchUsers();
         call.enqueue(new Callback<List<User>>() {
             @Override
@@ -65,5 +85,11 @@ public class UsersActivity extends AppCompatActivity {
                 Toast.makeText(UsersActivity.this, "fetchFailed", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchCrudUsers();
     }
 }

@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    @SerializedName("_id")
+    private String id;
     private String name;
     private Integer age;
     private String job;
@@ -229,5 +231,13 @@ public class User implements Serializable {
 
     public void setGpa(Float gpa) {
         this.gpa = gpa;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
