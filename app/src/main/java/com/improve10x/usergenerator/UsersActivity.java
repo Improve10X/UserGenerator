@@ -44,6 +44,8 @@ public class UsersActivity extends AppCompatActivity {
         randomUsersAdapter.setUsers(users);
     }
 
+
+
     private void fetchUsers() {
         UsersApi usersApi = new UsersApi();
         UsersApiService usersApiService = usersApi.createUserApiService();
@@ -64,4 +66,5 @@ public class UsersActivity extends AppCompatActivity {
             }
         });
     }
+
 }
