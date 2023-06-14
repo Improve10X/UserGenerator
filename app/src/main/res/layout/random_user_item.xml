@@ -118,8 +118,7 @@
                 android:id="@+id/location_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:text="@{user.address.streetAddress + user.address.city + user.address.countryCode + user.address.zipCode}"
+                android:text="location"
                 android:textColor="#AEABAB"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -128,12 +127,14 @@
 
             <Button
                 android:id="@+id/details_btn"
-                style="@style/Widget.Material3.Button"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#2196F3"
+                android:backgroundTint="#03A9F4"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
                 android:text="Details"
                 android:textAllCaps="false"
                 app:layout_constraintStart_toStartOf="parent"
@@ -141,10 +142,12 @@
 
             <Button
                 android:id="@+id/save_btn"
-                style="@style/Widget.Material3.Button.OutlinedButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFFFFF"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
                 android:text="Save"
                 android:textColor="#2598CC"
                 android:visibility="visible"
@@ -167,16 +170,20 @@
 
             <Button
                 android:id="@+id/delete_btn"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
                 android:backgroundTint="#FFFFFF"
-                android:text="Delete"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:text="delete"
                 android:textColor="#2598CC"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="@+id/save_btn"
-                app:layout_constraintStart_toEndOf="@+id/save_btn"
-                app:layout_constraintTop_toTopOf="@+id/save_btn" />
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/details_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.482"
+                app:layout_constraintStart_toEndOf="@+id/details_btn"
+                app:layout_constraintTop_toTopOf="@+id/details_btn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
