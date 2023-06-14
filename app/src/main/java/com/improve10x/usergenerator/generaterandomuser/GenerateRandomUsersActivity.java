@@ -66,6 +66,10 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
             public void onSave(User user) {
                 createUser(user);
             }
+
+            @Override
+            public void onDelete(String id) {
+            }
         });
     }
 

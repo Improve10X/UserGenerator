@@ -18,6 +18,10 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
 
     private OnItemActionListener onItemActionListener;
 
+    private boolean showSaveBtn = false;
+
+    private boolean showDeleteBtn = false;
+
     public void setShowSaveBtn(boolean showSaveBtn) {
         this.showSaveBtn = showSaveBtn;
     }
@@ -25,10 +29,6 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
     public void setShowDeleteBtn(boolean showDeleteBtn) {
         this.showDeleteBtn = showDeleteBtn;
     }
-
-    private boolean showSaveBtn = false;
-
-    private boolean showDeleteBtn = false;
 
     public void setUsers(List<User> users) {
         this.Users = users;
@@ -58,6 +58,9 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
         holder.binding.userAddressTxt.setText(user.getAddress().getStreetAddress() + ", " +user.getAddress().getCity() + ", " + user.getAddress().getCountryCode() + " " + user.getAddress().getZipCode());
         holder.binding.saveBtn.setOnClickListener(v -> {
             onItemActionListener.onSave(user);
+        });
+        holder.binding.deleteBtn.setOnClickListener(v -> {
+            onItemActionListener.onDelete(user.getId());
         });
         setSaveBtnVisibility(holder);
         setDeleteBtnVisibility(holder);

@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.improve10x.usergenerator.GeneratorRandomUsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
+import com.improve10x.usergenerator.generaterandomuser.OnItemActionListener;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApiService;
@@ -65,5 +66,33 @@ public class UsersActivity extends AppCompatActivity {
         generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
         generatorRandomUsersAdapter.setUsers(users);
         generatorRandomUsersAdapter.setShowDeleteBtn(true);
+        generatorRandomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onSave(User user) {
+            }
+
+            @Override
+            public void onDelete(String id) {
+                deleteUser(id);
+            }
+        });
+    }
+
+    private void deleteUser(String id) {
+        CrudUserApi api = new CrudUserApi();
+        CrudUserApiService crudUserApiService = api.createCrudUserApiService();
+        Call<Void> call = crudUserApiService.deleteUser(id);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                getUsers();
+                Toast.makeText(UsersActivity.this, "Successfully deleted user", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(UsersActivity.this, "Failed to delete user", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
