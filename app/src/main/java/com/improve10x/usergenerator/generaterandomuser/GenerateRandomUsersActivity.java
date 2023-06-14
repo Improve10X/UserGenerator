@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.GeneratorRandomUsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityGenerateRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;

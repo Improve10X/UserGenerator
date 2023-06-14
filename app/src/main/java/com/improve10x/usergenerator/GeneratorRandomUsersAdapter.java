@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator.generaterandomuser;
+package com.improve10x.usergenerator;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
+import com.improve10x.usergenerator.generaterandomuser.OnItemActionListener;
 import com.improve10x.usergenerator.model.User;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
 
     private OnItemActionListener onItemActionListener;
 
-    void setUsers(List<User> users) {
+    public void setUsers(List<User> users) {
         this.Users = users;
         notifyDataSetChanged();
     }
