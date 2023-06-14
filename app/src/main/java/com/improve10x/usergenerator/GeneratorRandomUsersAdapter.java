@@ -59,22 +59,28 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
         holder.binding.saveBtn.setOnClickListener(v -> {
             onItemActionListener.onSave(user);
         });
-
-        if (showSaveBtn) {
-            holder.binding.saveBtn.setVisibility(View.VISIBLE);
-        } else {
-            holder.binding.saveBtn.setVisibility(View.INVISIBLE);
-        }
-
-        if (showDeleteBtn) {
-            holder.binding.deleteBtn.setVisibility(View.VISIBLE);
-        } else {
-            holder.binding.deleteBtn.setVisibility(View.INVISIBLE);
-        }
+        setSaveBtnVisibility(holder);
+        setDeleteBtnVisibility(holder);
     }
 
     @Override
     public int getItemCount() {
         return Users.size();
+    }
+
+    private void setSaveBtnVisibility(GeneratorRandomUserViewHolder holder) {
+        if (showSaveBtn) {
+            holder.binding.saveBtn.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.saveBtn.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void setDeleteBtnVisibility(GeneratorRandomUserViewHolder holder) {
+        if (showDeleteBtn) {
+            holder.binding.deleteBtn.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.deleteBtn.setVisibility(View.INVISIBLE);
+        }
     }
 }
