@@ -21,10 +21,12 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
 
     public void setShowSave(Boolean showSave) {
         this.showSave = showSave;
+        notifyDataSetChanged();
     }
 
     public void setShowDelete(Boolean showDelete) {
         this.showDelete = showDelete;
+        notifyDataSetChanged();
     }
     private OnItemClickListener listener;
 
