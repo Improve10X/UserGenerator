@@ -60,6 +60,7 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
     private void setupAdapter() {
         generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
         generatorRandomUsersAdapter.setUsers(users);
+        generatorRandomUsersAdapter.setShowSaveBtn(true);
         generatorRandomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onSave(User user) {

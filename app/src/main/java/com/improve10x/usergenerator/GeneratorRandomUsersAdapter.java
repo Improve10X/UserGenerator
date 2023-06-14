@@ -1,6 +1,7 @@
 package com.improve10x.usergenerator;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,18 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
     private List<User> Users;
 
     private OnItemActionListener onItemActionListener;
+
+    public void setShowSaveBtn(boolean showSaveBtn) {
+        this.showSaveBtn = showSaveBtn;
+    }
+
+    public void setShowDeleteBtn(boolean showDeleteBtn) {
+        this.showDeleteBtn = showDeleteBtn;
+    }
+
+    private boolean showSaveBtn = false;
+
+    private boolean showDeleteBtn = false;
 
     public void setUsers(List<User> users) {
         this.Users = users;
@@ -46,6 +59,18 @@ public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorR
         holder.binding.saveBtn.setOnClickListener(v -> {
             onItemActionListener.onSave(user);
         });
+
+        if (showSaveBtn) {
+            holder.binding.saveBtn.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.saveBtn.setVisibility(View.INVISIBLE);
+        }
+
+        if (showDeleteBtn) {
+            holder.binding.deleteBtn.setVisibility(View.VISIBLE);
+        } else {
+            holder.binding.deleteBtn.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
