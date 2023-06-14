@@ -18,7 +18,7 @@ public class RandomPeopleApi {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.RANDOM_BASE_URL)
+                .baseUrl(Constants.RANDOM_PEOPLE_GENERATOR_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

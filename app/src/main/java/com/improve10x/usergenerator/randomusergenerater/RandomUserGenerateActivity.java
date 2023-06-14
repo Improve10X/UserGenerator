@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
-import com.improve10x.usergenerator.R;
 import com.improve10x.usergenerator.databinding.ActivityRandomUserGenerateBinding;
 import com.improve10x.usergenerator.modelclass.User;
 
@@ -15,7 +14,7 @@ import java.util.List;
 public class RandomUserGenerateActivity extends AppCompatActivity {
 
     private ActivityRandomUserGenerateBinding binding;
-    private RandomUserGenerateAdapter randomUserGenerateAdapter;
+    private RandomUsersGenerateAdapter randomUsersGenerateAdapter;
     private List<User> users = new ArrayList<>();
 
     @Override
@@ -29,11 +28,11 @@ public class RandomUserGenerateActivity extends AppCompatActivity {
     }
 
     private void setupAdapter() {
-        randomUserGenerateAdapter = new RandomUserGenerateAdapter(users);
+        randomUsersGenerateAdapter = new RandomUsersGenerateAdapter(users);
     }
 
     private void setupRandomUsersRv() {
         binding.randomUserGenerateRv.setLayoutManager(new LinearLayoutManager(this));
-        binding.randomUserGenerateRv.setAdapter(randomUserGenerateAdapter);
+        binding.randomUserGenerateRv.setAdapter(randomUsersGenerateAdapter);
     }
 }

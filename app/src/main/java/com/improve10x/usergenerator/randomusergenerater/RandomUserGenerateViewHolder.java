@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.improve10x.usergenerator.databinding.RandomUsersItemBinding;
 
 public class RandomUserGenerateViewHolder extends RecyclerView.ViewHolder {
-        RandomUsersItemBinding randomUsersItemBinding;
+    RandomUsersItemBinding randomUsersItemBinding;
 
     public RandomUserGenerateViewHolder(RandomUsersItemBinding randomUsersItemBinding) {
         super(randomUsersItemBinding.getRoot());
-       this.randomUsersItemBinding = randomUsersItemBinding;
+        this.randomUsersItemBinding = randomUsersItemBinding;
     }
 }

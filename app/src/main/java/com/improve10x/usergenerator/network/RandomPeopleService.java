@@ -10,6 +10,6 @@ import retrofit2.http.GET;
 
 public interface RandomPeopleService {
 
-    @GET(Constants.RANDOM_END_POINT)
+    @GET(Constants.RANDOM_PEOPLE_GENERATOR_END_POINT)
     Call<List<User>> fetchRandomPeople();
 }

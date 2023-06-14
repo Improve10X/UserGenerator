@@ -19,7 +19,7 @@ public class CrudUsersApi {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.USER_BASE_URL)
+                .baseUrl(Constants.CRUD_USER_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

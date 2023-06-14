@@ -7,16 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.improve10x.usergenerator.databinding.RandomUsersItemBinding;
-import com.improve10x.usergenerator.modelclass.Address;
 import com.improve10x.usergenerator.modelclass.User;
 
 import java.util.List;
 
-public class RandomUserGenerateAdapter extends RecyclerView.Adapter<RandomUserGenerateViewHolder> {
+public class RandomUsersGenerateAdapter extends RecyclerView.Adapter<RandomUserGenerateViewHolder> {
 
     private List<User> users;
 
-    public RandomUserGenerateAdapter(List<User> users) {
+    public RandomUsersGenerateAdapter(List<User> users) {
         this.users = users;
     }
 
@@ -28,7 +27,7 @@ public class RandomUserGenerateAdapter extends RecyclerView.Adapter<RandomUserGe
     @NonNull
     @Override
     public RandomUserGenerateViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RandomUsersItemBinding binding = RandomUsersItemBinding.inflate(LayoutInflater.from(parent.getContext()),parent, false);
+        RandomUsersItemBinding binding = RandomUsersItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         RandomUserGenerateViewHolder randomUserGenerateViewHolder = new RandomUserGenerateViewHolder(binding);
         return randomUserGenerateViewHolder;
     }
