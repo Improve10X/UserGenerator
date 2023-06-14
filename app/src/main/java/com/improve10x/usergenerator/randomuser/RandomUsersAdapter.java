@@ -15,7 +15,8 @@ import retrofit2.Call;
 
 public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolder> {
 
-    List<User> users;
+    private List<User> users;
+    private OnItemClickListener listener;
 
     public RandomUsersAdapter(List<User> users) {
         this.users = users;
@@ -24,6 +25,10 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
     void setData(List<User> users) {
         this.users = users;
         notifyDataSetChanged();
+    }
+
+    void setOnItemListener(OnItemClickListener listener){
+        this.listener = listener;
     }
 
     @NonNull
@@ -45,6 +50,9 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         holder.binding.locationTxt.setText(user.getAddress().getStreetAddress() + ", "
                 + user.getAddress().getCity() + ", " + user.getAddress().getCountryCode() +
                  user.getAddress().getZipCode());
+        holder.binding.saveBtn.setOnClickListener(v -> {
+            listener.onClicked(user);
+        });
     }
 
     @Override

@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.usergenerator.R;
 import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
+import com.improve10x.usergenerator.network.cruduserapi.CrudUserApi;
+import com.improve10x.usergenerator.network.cruduserapi.CrudUsersService;
 import com.improve10x.usergenerator.network.randompeopleapi.PeopleApi;
 import com.improve10x.usergenerator.network.randompeopleapi.RandomPeopleService;
 
@@ -37,6 +38,12 @@ public class RandomUsersActivity extends AppCompatActivity {
 
     private void setupAdapter () {
         randomUsersAdapter = new RandomUsersAdapter(users);
+        randomUsersAdapter.setOnItemListener(new OnItemClickListener() {
+            @Override
+            public void onClicked(User user) {
+                createUser(user);
+            }
+        });
     }
 
     private void setupRandomUsersRv() {
@@ -56,6 +63,22 @@ public class RandomUsersActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 Toast.makeText(RandomUsersActivity.this, "Fetch Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void createUser(User user){
+        CrudUsersService crudUsersService = new CrudUserApi().createCrudUserService();
+        Call<User> call = crudUsersService.createUsers(user);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                Toast.makeText(RandomUsersActivity.this, "successfully saved data", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(RandomUsersActivity.this, "failed", Toast.LENGTH_SHORT).show();
             }
         });
     }
