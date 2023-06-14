@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.usergenerator.GeneratorRandomUsersAdapter;
+import com.improve10x.usergenerator.RandomUsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityGenerateRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
@@ -24,7 +24,7 @@ import retrofit2.Response;
 public class GenerateRandomUsersActivity extends AppCompatActivity {
 
     private ArrayList<User> users = new ArrayList<>();
-    private GeneratorRandomUsersAdapter generatorRandomUsersAdapter;
+    private RandomUsersAdapter randomUsersAdapter;
     private ActivityGenerateRandomUsersBinding binding;
 
     @Override
@@ -46,7 +46,7 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 List<User> generateRandomUsers = response.body();
-                generatorRandomUsersAdapter.setUsers(generateRandomUsers);
+                randomUsersAdapter.setUsers(generateRandomUsers);
                 Toast.makeText(GenerateRandomUsersActivity.this, "Successfully Loaded Data", Toast.LENGTH_SHORT).show();
             }
 
@@ -58,9 +58,9 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
     }
 
     private void setupAdapter() {
-        generatorRandomUsersAdapter = new GeneratorRandomUsersAdapter();
-        generatorRandomUsersAdapter.setUsers(users);
-        generatorRandomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
+        randomUsersAdapter = new RandomUsersAdapter();
+        randomUsersAdapter.setUsers(users);
+        randomUsersAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onSave(User user) {
                 createUser(user);
@@ -70,7 +70,7 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
 
     private void setupRecyclerView() {
         binding.generateRandomUsersRv.setLayoutManager(new LinearLayoutManager(this));
-        binding.generateRandomUsersRv.setAdapter(generatorRandomUsersAdapter);
+        binding.generateRandomUsersRv.setAdapter(randomUsersAdapter);
     }
 
     private void createUser(User user) {

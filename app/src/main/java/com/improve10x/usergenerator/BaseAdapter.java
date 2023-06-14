@@ -12,8 +12,7 @@ import com.improve10x.usergenerator.model.User;
 
 import java.util.List;
 
-public class GeneratorRandomUsersAdapter extends RecyclerView.Adapter<GeneratorRandomUserViewHolder> {
-
+public class BaseAdapter extends RecyclerView.Adapter<GeneratorRandomUserViewHolder> {
     private List<User> Users;
 
     private OnItemActionListener onItemActionListener;
