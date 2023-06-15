@@ -23,6 +23,7 @@ public class UsersActivity extends AppCompatActivity {
     private RandomUsersAdapter randomUsersAdapter;
 
     private ArrayList<User> users = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +44,13 @@ public class UsersActivity extends AppCompatActivity {
         randomUsersAdapter = new RandomUsersAdapter();
         randomUsersAdapter.setUsers(users);
         randomUsersAdapter.setShowDelete(true);
+        randomUsersAdapter.setListener(new OnActionListener() {
+            @Override
+            public void deleteUser(String id) {
+                deleteUserApi(id);
+            }
+        });
     }
-
-
 
     private void fetchUsers() {
         UsersApi usersApi = new UsersApi();
@@ -68,4 +73,20 @@ public class UsersActivity extends AppCompatActivity {
         });
     }
 
+    private void deleteUserApi(String id) {
+        UsersApiService usersApiService = new UsersApi().createUserApiService();
+        Call<Void> call = usersApiService.deleteUser(id);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Toast.makeText(UsersActivity.this, "Deleted Item", Toast.LENGTH_SHORT).show();
+                fetchUsers();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(UsersActivity.this, "Failed to delete item", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

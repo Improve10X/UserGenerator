@@ -20,6 +20,6 @@ public interface UsersApiService {
     @POST(Constants.USER_END_POINT)
     Call<User> createUser(@Body User user);
 
-    @DELETE(Constants.USER_END_POINT + "{id}")
+    @DELETE(Constants.USER_END_POINT + "/{id}")
     Call<Void> deleteUser(@Path("id") String id);
 }

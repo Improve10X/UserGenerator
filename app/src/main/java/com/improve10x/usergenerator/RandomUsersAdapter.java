@@ -16,14 +16,21 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
 
     private List<User> users;
     private OnItemActionListener actionListener;
-    private boolean showSave= false;
+    private OnActionListener listener;
+
+    void setListener(OnActionListener listener) {
+        this.listener = listener;
+    }
+
+    private boolean showSave = false;
     private boolean showDelete = false;
 
-    public void setShowSave(boolean showSave){
+    public void setShowSave(boolean showSave) {
         this.showSave = showSave;
         notifyDataSetChanged();
     }
-    public void setShowDelete(boolean showDelete){
+
+    public void setShowDelete(boolean showDelete) {
         this.showDelete = showDelete;
         notifyDataSetChanged();
     }
@@ -49,7 +56,9 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
     public void onBindViewHolder(@NonNull RandomViewHolder holder, int position) {
         User user = users.get(position);
         holder.randomUserItemBinding.setUser(user);
-
+        holder.randomUserItemBinding.locationTxt.setText(user.getAddress().getStreetAddress()+ ", "
+                + user.getAddress().getCity()+", " + user.getAddress().getCountryCode()+" "
+                + user.getAddress().getZipCode());
         holder.randomUserItemBinding.saveBtn.setOnClickListener(v -> {
             actionListener.saveUser(user);
         });
@@ -57,12 +66,15 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
             holder.randomUserItemBinding.saveBtn.setVisibility(View.VISIBLE);
             holder.randomUserItemBinding.deleteBtn.setVisibility(View.GONE);
         }
-
         if (showDelete == true) {
-            holder.randomUserItemBinding.saveBtn.setVisibility(View.GONE);
             holder.randomUserItemBinding.deleteBtn.setVisibility(View.VISIBLE);
+            holder.randomUserItemBinding.saveBtn.setVisibility(View.GONE);
         }
+        holder.randomUserItemBinding.deleteBtn.setOnClickListener(view -> {
+            listener.deleteUser(user.getId());
+        });
     }
+
     @Override
     public int getItemCount() {
         return users.size();
