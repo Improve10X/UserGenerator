@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.improve10x.usergenerator.databinding.ActivityUserDetailsBinding;
+
 public class UserDetailsActivity extends AppCompatActivity {
+
+    private ActivityUserDetailsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_details);
+        binding = ActivityUserDetailsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
     }
 }
