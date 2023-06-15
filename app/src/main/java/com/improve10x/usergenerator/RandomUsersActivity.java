@@ -39,7 +39,6 @@ public class RandomUsersActivity extends AppCompatActivity {
         fetchRandomUsers();
         setupAdapter();
         setupRandomUsersRv();
-
     }
 
     private void setupRandomUsersRv() {
