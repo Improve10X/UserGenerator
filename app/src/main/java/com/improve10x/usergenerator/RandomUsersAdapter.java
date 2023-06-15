@@ -70,6 +70,9 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
         holder.randomUserItemBinding.deleteBtn.setOnClickListener(view -> {
             listener.deleteUser(user.getId());
         });
+        holder.randomUserItemBinding.detailsBtn.setOnClickListener(v -> {
+            actionListener.userDetails(user);
+        });
     }
 
     @Override

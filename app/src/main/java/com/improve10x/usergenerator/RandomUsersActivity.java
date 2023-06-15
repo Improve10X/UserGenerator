@@ -3,6 +3,7 @@ package com.improve10x.usergenerator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -54,6 +55,13 @@ public class RandomUsersActivity extends AppCompatActivity {
             @Override
             public void saveUser(User user) {
                 addUser(user);
+            }
+
+            @Override
+            public void userDetails(User user) {
+                Intent intent = new Intent(RandomUsersActivity.this, UserDetailsActivity.class);
+                intent.putExtra(Constants.KEY_RANDOM_USERS_VALUE, users);
+                startActivity(intent);
             }
         });
     }
