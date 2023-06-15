@@ -60,7 +60,7 @@ public class RandomUsersActivity extends AppCompatActivity {
             @Override
             public void userDetails(User user) {
                 Intent intent = new Intent(RandomUsersActivity.this, UserDetailsActivity.class);
-                intent.putExtra(Constants.KEY_RANDOM_USERS_VALUE, users);
+                intent.putExtra(Constants.KEY_RANDOM_USERS_VALUE, user);
                 startActivity(intent);
             }
         });

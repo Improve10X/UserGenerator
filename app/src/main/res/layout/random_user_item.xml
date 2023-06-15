@@ -118,9 +118,7 @@
                 android:id="@+id/location_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{user.address.streetAddress + `, `
-        + user.address.state + `, ` + user.address.countryCode + ` `
-        +user.address.zipCode}"
+                android:text="@{user.address.streetAddress + `, ` + user.address.state + `, ` + user.address.countryCode + ` ` +user.address.zipCode}"
                 android:textColor="#AEABAB"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView2"
                 app:layout_constraintStart_toEndOf="@+id/imageView2"

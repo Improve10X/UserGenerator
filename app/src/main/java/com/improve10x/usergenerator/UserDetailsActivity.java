@@ -17,7 +17,8 @@ public class UserDetailsActivity extends AppCompatActivity {
         setContentView(userDetailsBinding.getRoot());
         getSupportActionBar().setTitle("User Details");
         if(getIntent().hasExtra(Constants.KEY_RANDOM_USERS_VALUE)) {
-             user = (User) getIntent().getSerializableExtra(Constants.KEY_RANDOM_USERS_VALUE);
+            user = (User) getIntent().getSerializableExtra(Constants.KEY_RANDOM_USERS_VALUE);
+            userDetailsBinding.setUser(user);
         }
     }
 }
