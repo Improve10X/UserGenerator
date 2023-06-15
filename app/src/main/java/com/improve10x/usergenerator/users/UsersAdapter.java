@@ -51,12 +51,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = Users.get(position);
-        holder.binding.userNameTxt.setText(user.getName());
-        holder.binding.userJobTxt.setText(user.getJob());
-        holder.binding.userEmailTxt.setText("email : " + user.getEmail());
-        holder.binding.userIncomeTxt.setText("Income : $" + user.getIncomeUsd());
-        holder.binding.userCreditScoreTxt.setText("Credit Score : " + user.getCreditScore());
-        holder.binding.userAddressTxt.setText(user.getAddress().getStreetAddress() + ", " +user.getAddress().getCity() + ", " + user.getAddress().getCountryCode() + " " + user.getAddress().getZipCode());
+        holder.binding.setUser(user);
         holder.binding.saveBtn.setOnClickListener(v -> {
             onItemActionListener.onSave(user);
         });
