@@ -21,7 +21,6 @@ public class UserDetailsActivity extends AppCompatActivity {
 
      private ActivityUserDetailsBinding binding;
      private User user;
-
      private CrudUserApiService crudUserApiService;
 
     @Override
