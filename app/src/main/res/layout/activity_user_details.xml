@@ -14,8 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/user_name_txt"
@@ -203,6 +202,7 @@
                 android:id="@+id/constraintLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -213,6 +213,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Age"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
@@ -233,264 +234,289 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.age)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Married"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_age_txt" />
 
                 <TextView
                     android:id="@+id/user_married_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.married)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
-                    app:layout_constraintTop_toBottomOf="@+id/user_age_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_age_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Has Children"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_married_txt" />
 
                 <TextView
                     android:id="@+id/user_has_children_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.hasChildren)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView10"
-                    app:layout_constraintTop_toBottomOf="@+id/user_married_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_married_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Height"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="@+id/textView10"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_has_children_txt" />
 
                 <TextView
                     android:id="@+id/user_height_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.heightInCms)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/user_has_children_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_has_children_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView14"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Weight"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_height_txt" />
 
                 <TextView
                     android:id="@+id/user_weight_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.weightInKgs)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView14"
-                    app:layout_constraintTop_toBottomOf="@+id/user_height_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_height_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Eye Color"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_weight_txt" />
 
                 <TextView
                     android:id="@+id/user_eye_color_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{user.eyeColor}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/user_weight_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_weight_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView18"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Gender"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_eye_color_txt" />
 
                 <TextView
                     android:id="@+id/user_gender_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{user.gender}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView18"
-                    app:layout_constraintTop_toBottomOf="@+id/user_eye_color_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_eye_color_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView20"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Has Degree"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_gender_txt" />
 
                 <TextView
                     android:id="@+id/user_has_degree_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.hasDegree)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/user_gender_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_gender_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView22"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Blood Type"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_has_degree_txt" />
 
                 <TextView
                     android:id="@+id/user_blood_type_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{user.bloodType}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/user_has_degree_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_has_degree_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView24"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Political Leaning"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView22" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_blood_type_txt" />
 
                 <TextView
                     android:id="@+id/user_political_leaning_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.politicalLeaning)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/user_blood_type_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_blood_type_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView26"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Religion"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView24" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_political_leaning_txt" />
 
                 <TextView
                     android:id="@+id/user_religion_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{user.religion}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView26"
-                    app:layout_constraintTop_toBottomOf="@+id/user_political_leaning_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_political_leaning_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView28"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="Date Of Birth"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView26" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_religion_txt" />
 
                 <TextView
                     android:id="@+id/user_dob_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{user.dob}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/user_religion_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_religion_txt"
+                    tools:text="TextView" />
 
                 <TextView
                     android:id="@+id/textView32"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="GPA"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView28" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_dob_txt" />
 
                 <TextView
                     android:id="@+id/user_gpa_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:padding="4dp"
                     android:text="@{String.valueOf(user.gpa)}"
-                    tools:text="TextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
-                    app:layout_constraintTop_toBottomOf="@+id/user_dob_txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/user_dob_txt"
+                    tools:text="TextView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="user"
             type="com.improve10x.usergenerator.model.User" />
     </data>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -23,12 +23,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{user.name}"
-            tools:text="Vinod"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Vinod" />
 
         <TextView
             android:id="@+id/user_job_txt"
@@ -36,10 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@{user.job}"
-            tools:text="Developer"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_name_txt" />
+            app:layout_constraintTop_toBottomOf="@+id/user_name_txt"
+            tools:text="Developer" />
 
         <TextView
             android:id="@+id/user_email_txt"
@@ -47,21 +47,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@{`email : ` + user.email}"
-            tools:text="email: vinumanju1991@gamil.com"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_job_txt" />
+            app:layout_constraintTop_toBottomOf="@+id/user_job_txt"
+            tools:text="email: vinumanju1991@gamil.com" />
 
         <TextView
             android:id="@+id/user_income_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{`Income : ` + String.valueOf(user.incomeUsd)}"
-            tools:text="IncomeUSD : 3700"
             app:layout_constraintEnd_toStartOf="@+id/user_credit_score_txt"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_email_txt" />
+            app:layout_constraintTop_toBottomOf="@+id/user_email_txt"
+            tools:text="IncomeUSD : 3700" />
 
         <TextView
             android:id="@+id/user_credit_score_txt"
@@ -69,11 +69,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:text="@{`Credit Score : ` + String.valueOf(user.creditScore)}"
-            tools:text="Creadit Score : 701"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/user_income_txt"
-            app:layout_constraintTop_toTopOf="@+id/user_income_txt" />
+            app:layout_constraintTop_toTopOf="@+id/user_income_txt"
+            tools:text="Creadit Score : 701" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -81,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:adjustViewBounds="true"
+            android:paddingLeft="-4dp"
             android:scaleType="fitCenter"
             android:src="@drawable/baseline_location_on_24"
             app:layout_constraintEnd_toStartOf="@+id/user_address_txt"
@@ -97,11 +98,11 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{user.address.streetAddress + `, ` + user.address.city + `, ` + user.address.countryCode + `, ` + user.address.zipCode}"
-            tools:text="Address"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintTop_toTopOf="@+id/imageView"
+            tools:text="Address" />
 
         <Button
             android:id="@+id/details_btn"
