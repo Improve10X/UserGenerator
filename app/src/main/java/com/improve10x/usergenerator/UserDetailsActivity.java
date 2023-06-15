@@ -25,7 +25,8 @@ public class UserDetailsActivity extends AppCompatActivity {
     }
 
     private void showData() {
-        binding.nameTxt.setText(user.getName());
+        binding.setUser(user);
+        /*binding.nameTxt.setText(user.getName());
         binding.designationTxt.setText(user.getJob());
         binding.emailTxt.setText(user.getEmail());
         binding.incomeTxt.setText(String.valueOf(user.getIncomeUsd()));
@@ -33,6 +34,6 @@ public class UserDetailsActivity extends AppCompatActivity {
         binding.addressTxt.setText(user.getAddress().getStreetAddress()+", "+user.getAddress().getCity()+", " +user.getAddress().getCountryCode()+user.getAddress().getZipCode());
         binding.marriedTxt.setText(String.valueOf(user.getMarried()));
         binding.heightTxt.setText(String.valueOf(user.getHeightInCms()));
-        binding.weightTxt.setText(String.valueOf(user.getWeightInKgs()));
+        binding.weightTxt.setText(String.valueOf(user.getWeightInKgs()));*/
     }
 }
