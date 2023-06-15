@@ -78,7 +78,7 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
             @Override
             public void onDetails(User user) {
                 Intent intent = new Intent(GenerateRandomUsersActivity.this, UserDetailsActivity.class);
-                intent.putExtra(Constants.KEY_USER, user);
+                intent.putExtra(Constants.KEY_RANDOM_USER, user);
                 startActivity(intent);
             }
         });
