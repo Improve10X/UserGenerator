@@ -58,14 +58,15 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
     @Override
     public void onBindViewHolder(@NonNull RandomUserViewHolder holder, int position) {
         User user = users.get(position);
-        holder.binding.nameTxt.setText(user.getName());
+        holder.binding.setUser(user);
+       /* holder.binding.nameTxt.setText(user.getName());
         holder.binding.emailTxt.setText(user.getEmail());
         holder.binding.creditScoreTxt.setText(String.valueOf(user.getCreditScore()));
         holder.binding.designationTxt.setText(user.getJob());
         holder.binding.incomeTxt.setText(String.valueOf(user.getIncomeUsd()));
         holder.binding.locationTxt.setText(user.getAddress().getStreetAddress() + ", "
                 + user.getAddress().getCity() + ", " + user.getAddress().getCountryCode() +
-                user.getAddress().getZipCode());
+                user.getAddress().getZipCode());*/
         if (showSave == true) {
             holder.binding.saveBtn.setVisibility(View.VISIBLE);
             holder.binding.deleteBtn.setVisibility(View.GONE);
