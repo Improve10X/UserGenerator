@@ -7,4 +7,6 @@ public interface OnItemActionListener {
     void onSave(User user);
 
     void onDelete(String id);
+
+    void onDetails(User user);
 }

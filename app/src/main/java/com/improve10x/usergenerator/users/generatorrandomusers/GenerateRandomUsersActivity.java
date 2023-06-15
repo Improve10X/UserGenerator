@@ -3,9 +3,12 @@ package com.improve10x.usergenerator.users.generatorrandomusers;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.Constants;
+import com.improve10x.usergenerator.UserDetailsActivity;
 import com.improve10x.usergenerator.users.OnItemActionListener;
 import com.improve10x.usergenerator.users.UsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityGenerateRandomUsersBinding;
@@ -70,6 +73,13 @@ public class GenerateRandomUsersActivity extends AppCompatActivity {
 
             @Override
             public void onDelete(String id) {
+            }
+
+            @Override
+            public void onDetails(User user) {
+                Intent intent = new Intent(GenerateRandomUsersActivity.this, UserDetailsActivity.class);
+                intent.putExtra(Constants.KEY_USER, user);
+                startActivity(intent);
             }
         });
     }

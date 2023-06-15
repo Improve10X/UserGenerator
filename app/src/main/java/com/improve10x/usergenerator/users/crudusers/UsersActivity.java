@@ -3,9 +3,12 @@ package com.improve10x.usergenerator.users.crudusers;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.Constants;
+import com.improve10x.usergenerator.UserDetailsActivity;
 import com.improve10x.usergenerator.users.UsersAdapter;
 import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
 import com.improve10x.usergenerator.users.OnItemActionListener;
@@ -74,6 +77,13 @@ public class UsersActivity extends AppCompatActivity {
             @Override
             public void onDelete(String id) {
                 deleteUser(id);
+            }
+
+            @Override
+            public void onDetails(User user) {
+                Intent intent = new Intent(UsersActivity.this, UserDetailsActivity.class);
+                intent.putExtra(Constants.KEY_USER, user);
+                startActivity(intent);
             }
         });
     }

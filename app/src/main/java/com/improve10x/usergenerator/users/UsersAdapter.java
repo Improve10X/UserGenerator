@@ -1,5 +1,6 @@
 package com.improve10x.usergenerator.users;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
         });
         holder.binding.deleteBtn.setOnClickListener(v -> {
             onItemActionListener.onDelete(user.getId());
+        });
+        holder.binding.detailsBtn.setOnClickListener(v -> {
+            onItemActionListener.onDetails(user);
         });
         setSaveBtnVisibility(holder);
         setDeleteBtnVisibility(holder);

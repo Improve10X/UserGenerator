@@ -2,7 +2,9 @@ package com.improve10x.usergenerator.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
 
     private String streetAddress;
     private String city;
