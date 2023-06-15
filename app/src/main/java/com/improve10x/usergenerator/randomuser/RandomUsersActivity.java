@@ -3,16 +3,19 @@ package com.improve10x.usergenerator.randomuser;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.improve10x.usergenerator.RandomUsersAdapter;
+import com.improve10x.usergenerator.UserDetailsActivity;
 import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.cruduserapi.CrudUserApi;
 import com.improve10x.usergenerator.network.cruduserapi.CrudUsersService;
 import com.improve10x.usergenerator.network.randompeopleapi.PeopleApi;
 import com.improve10x.usergenerator.network.randompeopleapi.RandomPeopleService;
+import com.improve10x.usergenerator.users.OnClickListener;
 
 import java.util.ArrayList;
 import java.util.List;

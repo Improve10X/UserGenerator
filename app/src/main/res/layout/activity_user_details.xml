@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/material_dynamic_primary80" />
+        app:srcCompat="@drawable/improve10x_logo" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -30,61 +30,70 @@
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/baseline_stars_25" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/name_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:text="Rohit Sharma"
+        android:textColor="#090909"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/designation_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/name_txt"
+        app:layout_constraintTop_toBottomOf="@+id/name_txt" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        android:text="email : "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/designation_txt"
+        app:layout_constraintTop_toBottomOf="@+id/designation_txt" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="Income : "
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/email_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/income_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="@+id/textView8" />
@@ -93,63 +102,59 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="@+id/textView10" />
+        android:text="Credit Score : "
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/income_txt"
+        app:layout_constraintEnd_toStartOf="@+id/creditscore_txt"
+        app:layout_constraintTop_toTopOf="@+id/income_txt" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/creditscore_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView11" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:srcCompat="@drawable/outline_location_on_24" />
+ <TextView
+     android:id="@+id/address_txt"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="8dp"
+     android:text="TextView"
+     android:textSize="16sp"
+     app:layout_constraintStart_toStartOf="@+id/textView8"
+     app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#00BCD4"
-        android:text="Details"
-        android:textAllCaps="false"
-        android:textColor="#E3EAED"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+ <Button
+     android:id="@+id/details_btn"
+     style="@style/Widget.Material3.ExtendedFloatingActionButton.Icon.Secondary"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="8dp"
+     android:backgroundTint="#00BCD4"
+     android:text="Details"
+     android:textAllCaps="false"
+     android:textColor="#E3EAED"
+     app:layout_constraintStart_toStartOf="@+id/textView8"
+     app:layout_constraintTop_toBottomOf="@+id/address_txt" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/delete_save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
         android:backgroundTint="#FFFFFF"
         android:text="Delete / Save"
         android:textAllCaps="false"
         android:textColor="#00BCD4"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="@+id/details_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        app:layout_constraintTop_toTopOf="@+id/details_btn"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/married_txt"
@@ -157,9 +162,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="48dp"
-        android:text="TextView"
+        android:text="Married"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/details_btn" />
 
     <TextView
         android:id="@+id/yes_txt"
@@ -167,6 +173,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/married_txt"
         app:layout_constraintStart_toEndOf="@+id/married_txt"
         app:layout_constraintTop_toTopOf="@+id/married_txt" />
@@ -176,18 +183,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/married_txt"
+        android:text="Height"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/married_txt"
         app:layout_constraintTop_toBottomOf="@+id/married_txt" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/height_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="@+id/yes_txt"
         app:layout_constraintStart_toStartOf="@+id/yes_txt"
         app:layout_constraintTop_toTopOf="@+id/textView16" />
 
@@ -196,38 +203,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        android:text="Weight"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/weight_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView18"
-        app:layout_constraintEnd_toEndOf="@+id/textView17"
-        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintStart_toStartOf="@+id/height_txt"
         app:layout_constraintTop_toTopOf="@+id/textView18" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:src="@tools:sample/avatars"
-        app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
-        tools:srcCompat="@drawable/baseline_more_horiz_24" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/textView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:srcCompat="@drawable/baseline_more_horiz_24" />
+        app:layout_constraintStart_toStartOf="@+id/weight_txt"
+        app:srcCompat="@drawable/baseline_more_horiz_24"
+        tools:layout_editor_absoluteY="654dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

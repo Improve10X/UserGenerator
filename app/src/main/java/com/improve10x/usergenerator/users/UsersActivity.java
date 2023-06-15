@@ -3,9 +3,11 @@ package com.improve10x.usergenerator.users;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.UserDetailsActivity;
 import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.cruduserapi.CrudUserApi;
@@ -25,6 +27,8 @@ public class UsersActivity extends AppCompatActivity {
     private ActivityUsersBinding binding;
     private CrudUsersService crudUsersService;
     private RandomUsersAdapter adapter;
+
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,11 @@ public class UsersActivity extends AppCompatActivity {
             public void onDeleteClicked(String id) {
                 deleteCrudUser(id);
             }
+
+            @Override
+            public void onItemDetailsClicked(User user) {
+                updateUser(user);
+            }
         });
     }
 
@@ -91,5 +100,11 @@ public class UsersActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         fetchCrudUsers();
+    }
+
+    private void updateUser(User user) {
+        Intent intent = new Intent(this, UserDetailsActivity.class);
+        intent.putExtra("User",user);
+        startActivity(intent);
     }
 }
