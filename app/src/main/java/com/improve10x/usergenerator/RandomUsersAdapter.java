@@ -56,9 +56,6 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
     public void onBindViewHolder(@NonNull RandomViewHolder holder, int position) {
         User user = users.get(position);
         holder.randomUserItemBinding.setUser(user);
-        holder.randomUserItemBinding.locationTxt.setText(user.getAddress().getStreetAddress()+ ", "
-                + user.getAddress().getCity()+", " + user.getAddress().getCountryCode()+" "
-                + user.getAddress().getZipCode());
         holder.randomUserItemBinding.saveBtn.setOnClickListener(v -> {
             actionListener.saveUser(user);
         });
