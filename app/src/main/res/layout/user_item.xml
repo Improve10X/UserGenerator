@@ -97,7 +97,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@{user.address.streetAddress + `, ` + user.address.city + `, ` + user.address.countryCode + `, ` + user.address.zipCode}"
+            android:text="@{user.address.streetAddress + `, ` + user.address.city + `, ` + user.address.countryCode + ` ` + user.address.zipCode}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView"
