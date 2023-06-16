@@ -198,17 +198,17 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_height="200dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details_btn">
+            app:layout_constraintTop_toBottomOf="@+id/details_btn"
+            app:layout_constraintVertical_bias="0.114">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="4dp">
 
                 <TextView
@@ -255,7 +255,7 @@
                     android:id="@+id/weight_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
+                    android:layout_marginStart="74dp"
                     android:text="@{String.valueOf(user.weightInKgs)}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView13"
                     app:layout_constraintStart_toEndOf="@+id/textView13"
@@ -285,12 +285,13 @@
                     android:id="@+id/age_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="84dp"
-                    android:text="age"
+                    android:layout_marginStart="88dp"
+                    android:text="@{String.valueOf(user.age)}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView2"
                     app:layout_constraintStart_toEndOf="@+id/textView2"
                     app:layout_constraintTop_toTopOf="@+id/textView2"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="age" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -304,12 +305,13 @@
                     android:id="@+id/ccnumber_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="44dp"
-                    android:text="CcNumber"
+                    android:layout_marginStart="52dp"
+                    android:text="@{user.ccNumber}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView10"
                     app:layout_constraintStart_toEndOf="@+id/textView10"
                     app:layout_constraintTop_toTopOf="@+id/textView10"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="ccNumber" />
 
                 <TextView
                     android:id="@+id/textView14"
@@ -323,11 +325,13 @@
                     android:id="@+id/eyecolor_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="56dp"
-                    android:text="Eyecolor"
+                    android:layout_marginStart="60dp"
+                    android:text="@{user.eyeColor}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView14"
                     app:layout_constraintStart_toEndOf="@+id/textView14"
-                    app:layout_constraintTop_toTopOf="@+id/textView14" />
+                    app:layout_constraintTop_toTopOf="@+id/textView14"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="eyeColor" />
 
                 <TextView
                     android:id="@+id/textView16"
@@ -341,12 +345,13 @@
                     android:id="@+id/gender_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="72dp"
-                    android:text="gender"
+                    android:layout_marginStart="71dp"
+                    android:text="@{user.gender}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView16"
                     app:layout_constraintStart_toEndOf="@+id/textView16"
                     app:layout_constraintTop_toTopOf="@+id/textView16"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="gender" />
 
                 <TextView
                     android:id="@+id/textView18"
@@ -360,12 +365,13 @@
                     android:id="@+id/degree_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="44dp"
-                    android:text="hasDegree"
+                    android:layout_marginStart="48dp"
+                    android:text="@{String.valueOf(user.hasDegree)}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView18"
                     app:layout_constraintStart_toEndOf="@+id/textView18"
                     app:layout_constraintTop_toTopOf="@+id/textView18"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="hasDegree" />
 
                 <TextView
                     android:id="@+id/textView20"
@@ -379,12 +385,13 @@
                     android:id="@+id/blood_type_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="44dp"
-                    android:text="bloodtype"
+                    android:layout_marginStart="48dp"
+                    android:text="@{user.bloodType}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView20"
                     app:layout_constraintStart_toEndOf="@+id/textView20"
                     app:layout_constraintTop_toTopOf="@+id/textView20"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="bloodType" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -398,11 +405,12 @@
                     android:id="@+id/username_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="48dp"
-                    android:text="username"
+                    android:layout_marginStart="50dp"
+                    android:text="@{user.username}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView22"
                     app:layout_constraintStart_toEndOf="@+id/textView22"
-                    app:layout_constraintTop_toTopOf="@+id/textView22" />
+                    app:layout_constraintTop_toTopOf="@+id/textView22"
+                    tools:text="username" />
 
                 <TextView
                     android:id="@+id/textView24"
@@ -413,15 +421,16 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/political_leaning_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:text="PoliticalLeaning"
+                    android:layout_marginStart="16dp"
+                    android:text="@{String.valueOf(user.politicalLeaning)}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView24"
                     app:layout_constraintStart_toEndOf="@+id/textView24"
                     app:layout_constraintTop_toTopOf="@+id/textView24"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="politicalLeaning" />
 
                 <TextView
                     android:id="@+id/textView26"
@@ -435,12 +444,13 @@
                     android:id="@+id/religon_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="76dp"
-                    android:text="Religon"
+                    android:layout_marginStart="68dp"
+                    android:text="@{user.religion}"
                     app:layout_constraintBottom_toTopOf="@+id/textView28"
                     app:layout_constraintStart_toEndOf="@+id/textView26"
                     app:layout_constraintTop_toTopOf="@+id/textView26"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="religion" />
 
                 <TextView
                     android:id="@+id/textView28"
@@ -454,11 +464,13 @@
                     android:id="@+id/geonameid_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
-                    android:text="geonameid"
+                    android:layout_marginStart="42dp"
+                    android:text="@{String.valueOf(user.address.geoNameId)}"
                     app:layout_constraintBottom_toBottomOf="@+id/textView28"
                     app:layout_constraintStart_toEndOf="@+id/textView28"
-                    app:layout_constraintTop_toTopOf="@+id/textView28" />
+                    app:layout_constraintTop_toTopOf="@+id/textView28"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="geoName" />
 
                 <TextView
                     android:id="@+id/textView30"
@@ -473,12 +485,13 @@
                     android:id="@+id/phonenumber_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:text="PhoneNumber"
+                    android:layout_marginStart="22dp"
+                    android:text="@{user.address.phoneNumber}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView30"
                     app:layout_constraintTop_toBottomOf="@+id/textView28"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="phoneNumber" />
 
                 <TextView
                     android:id="@+id/textView32"
@@ -493,11 +506,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="56dp"
-                    android:text="IPAdress"
+                    android:text="@{user.address.ipAddress}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textView32"
                     app:layout_constraintTop_toTopOf="@+id/textView32"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="ipAddress" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
