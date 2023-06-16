@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.improve10x.usergenerator.databinding.ActivityHomeBinding;
+import com.improve10x.usergenerator.randompeople.RandomUsersActivity;
+import com.improve10x.usergenerator.usersactivity.UsersActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding activityHomeBinding;
@@ -21,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void handleUsersBtn() {
         activityHomeBinding.usersBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this,UsersActivity.class);
+            Intent intent = new Intent(this, UsersActivity.class);
             startActivity(intent);
         });
     }

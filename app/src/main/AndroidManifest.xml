@@ -15,13 +15,13 @@
         android:theme="@style/Theme.UserGenerator"
         tools:targetApi="31">
         <activity
-            android:name=".UserDetailsActivity"
+            android:name=".userdetailsactivity.UserDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".UsersActivity"
+            android:name=".usersactivity.UsersActivity"
             android:exported="false" />
         <activity
-            android:name=".RandomUsersActivity"
+            android:name=".randompeople.RandomUsersActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

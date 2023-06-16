@@ -1,12 +1,12 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.randompeople;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.improve10x.usergenerator.usersactivity.OnActionListener;
 import com.improve10x.usergenerator.databinding.RandomUserItemBinding;
 import com.improve10x.usergenerator.model.User;
 
@@ -15,9 +15,9 @@ import java.util.List;
 public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
 
     private List<User> users;
-    private OnItemActionListener actionListener;
-    private OnActionListener listener;
-    void setListener(OnActionListener listener) {
+    protected OnItemActionListener actionListener;
+    protected OnActionListener listener;
+    public void setListener(OnActionListener listener) {
         this.listener = listener;
     }
     private boolean showSave = false;
@@ -33,7 +33,7 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
         notifyDataSetChanged();
     }
 
-    void setActionListener(OnItemActionListener actionListener) {
+    public void setActionListener(OnItemActionListener actionListener) {
         this.actionListener = actionListener;
     }
 

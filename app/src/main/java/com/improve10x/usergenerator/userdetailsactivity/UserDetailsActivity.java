@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.userdetailsactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.Constants;
 import com.improve10x.usergenerator.databinding.ActivityUserDetailsBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.usersNetwork.UsersApi;

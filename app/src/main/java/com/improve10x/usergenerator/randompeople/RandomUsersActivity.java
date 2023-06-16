@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.randompeople;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.Constants;
+import com.improve10x.usergenerator.userdetailsactivity.UserDetailsActivity;
 import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.randomNetwork.RandomPeopleApi;

@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.usersactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,10 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.Constants;
+import com.improve10x.usergenerator.userdetailsactivity.UserDetailsActivity;
 import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.usersNetwork.UsersApi;
 import com.improve10x.usergenerator.network.usersNetwork.UsersApiService;
+import com.improve10x.usergenerator.randompeople.OnItemActionListener;
+import com.improve10x.usergenerator.randompeople.RandomUsersAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
