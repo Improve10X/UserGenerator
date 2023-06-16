@@ -41,11 +41,13 @@ public class UsersActivity extends BaseActivity {
     }
 
     private void getUsers() {
+        showProgressBar();
         createCrudUserApiService();
         Call<List<User>> call = crudUserApiService.fetchUsers();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                hideProgressBar();
                 if (response.isSuccessful()) {
                     List<User> users = response.body();
                     usersAdapter.setUsers(users);
@@ -54,6 +56,7 @@ public class UsersActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed to load the data");
             }
         });
@@ -88,17 +91,20 @@ public class UsersActivity extends BaseActivity {
     }
 
     private void deleteUser(String id) {
+        showProgressBar();
         createCrudUserApiService();
         Call<Void> call = crudUserApiService.deleteUser(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                hideProgressBar();
                 getUsers();
                 showToast("Successfully deleted user");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed to delete user");
             }
         });

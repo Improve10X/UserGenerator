@@ -55,32 +55,38 @@ public class UserDetailsActivity extends BaseActivity {
     }
 
     private void deleteUser() {
+        showProgressBar();
         createCrudUserApiService();
         Call<Void> call = crudUserApiService.deleteUser(user.getId());
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                hideProgressBar();
                 showToast("Successfully deleted user");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed to delete user");
             }
         });
     }
 
     private void createUser() {
+        showProgressBar();
         CrudUserApiService crudUserApiService = new CrudUserApi().createCrudUserApiService();
         Call<User> call = crudUserApiService.createUser(user);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                showToast("Saved SuccessFully");
+                hideProgressBar();
+                showToast("Saved Successfully");
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                hideProgressBar();
                 showToast("Save Failed");
             }
         });
