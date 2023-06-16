@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.BaseActivity;
 import com.improve10x.usergenerator.Constants;
 import com.improve10x.usergenerator.UserDetailsActivity;
 import com.improve10x.usergenerator.users.UsersAdapter;
@@ -23,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersActivity extends BaseActivity {
 
     private ActivityUsersBinding binding;
     private UsersAdapter usersAdapter;
@@ -55,7 +56,7 @@ public class UsersActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(UsersActivity.this, "Failed to load the data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to load the data");
             }
         });
     }
@@ -95,12 +96,12 @@ public class UsersActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 getUsers();
-                Toast.makeText(UsersActivity.this, "Successfully deleted user", Toast.LENGTH_SHORT).show();
+                showToast("Successfully deleted user");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(UsersActivity.this, "Failed to delete user", Toast.LENGTH_SHORT).show();
+                showToast("Failed to delete user");
             }
         });
     }
