@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class CrudUserApi {
 
     public CrudUsersService createCrudUserService() {
-
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()

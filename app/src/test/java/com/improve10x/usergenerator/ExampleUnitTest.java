@@ -31,7 +31,7 @@ public class ExampleUnitTest {
     @Test
     public void getRandomPeople() throws IOException {
         RandomPeopleService randomPeopleService = new PeopleApi().createRandomPeopleService();
-        Call<List<User>> call = randomPeopleService.fetchRandomPeople();
+        Call<List<User>> call = randomPeopleService.fetchRandomPeopleGenerator();
         List<User> users = call.execute().body();
         assertNotNull(users);
         assertFalse(users.isEmpty());
@@ -58,7 +58,7 @@ public class ExampleUnitTest {
                 false, 156, 60.00f, "Black", "zingzing@gmail.com",
                 "male", true, "A+", "teja",
                 0.00f, "hindu", address, "2001", 9.99f);
-        Call<User> call = crudUsersService.createUsers(user);
+        Call<User> call = crudUsersService.createUser(user);
         User responseUser = call.execute().body();
         assertNotNull(responseUser);
         System.out.println(new Gson().toJson(responseUser));

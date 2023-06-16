@@ -12,7 +12,7 @@ import com.improve10x.usergenerator.databinding.ActivityUsersBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.cruduserapi.CrudUserApi;
 import com.improve10x.usergenerator.network.cruduserapi.CrudUsersService;
-import com.improve10x.usergenerator.RandomUsersAdapter;
+import com.improve10x.usergenerator.randomuser.RandomUsersAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,7 @@ public class UsersActivity extends AppCompatActivity {
     }
 
     private void deleteCrudUser(String id) {
-        Call<Void> call = crudUsersService.deleteUsers(id);
+        Call<Void> call = crudUsersService.deleteUser(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

@@ -1,4 +1,4 @@
-package com.improve10x.usergenerator;
+package com.improve10x.usergenerator.randomuser;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -43,7 +43,8 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
     @NonNull
     @Override
     public RandomUserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RandomUserItemBinding randomUserItemBinding = RandomUserItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        RandomUserItemBinding randomUserItemBinding = RandomUserItemBinding.inflate(LayoutInflater.
+                from(parent.getContext()), parent, false);
         RandomUserViewHolder randomUserViewHolder = new RandomUserViewHolder(randomUserItemBinding);
         return randomUserViewHolder;
     }

@@ -25,7 +25,6 @@ public class User implements Serializable {
     private String gender;
     private Boolean hasDegree;
     private String bloodType;
-
     private String username;
     private Float politicalLeaning;
     private String religion;
@@ -38,9 +37,10 @@ public class User implements Serializable {
     }
 
     public User(String name, Integer age, String job, Integer incomeUsd, Integer creditScore,
-                String ccNumber, Boolean married, Boolean hasChildren, Integer heightInCms, Float weightInKgs,
-                String eyeColor, String email, String gender, Boolean hasDegree, String bloodType,
-                String userName, Float politicalLeaning, String religion, Address address, String dateOfBirth,
+                String ccNumber, Boolean married, Boolean hasChildren, Integer heightInCms,
+                Float weightInKgs, String eyeColor, String email, String gender, Boolean hasDegree,
+                String bloodType, String userName, Float politicalLeaning, String religion,
+                Address address, String dateOfBirth,
                 Float gpa) {
         this.name = name;
         this.age = age;

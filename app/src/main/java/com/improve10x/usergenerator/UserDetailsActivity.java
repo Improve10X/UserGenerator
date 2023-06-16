@@ -58,7 +58,7 @@ public class UserDetailsActivity extends AppCompatActivity {
 
     public void deleteUser(String id) {
         CrudUsersService crudUsersService = new CrudUserApi().createCrudUserService();
-        Call<Void> call = crudUsersService.deleteUsers(id);
+        Call<Void> call = crudUsersService.deleteUser(id);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -74,7 +74,7 @@ public class UserDetailsActivity extends AppCompatActivity {
 
     public void saveUser(User user) {
         CrudUsersService crudUsersService = new CrudUserApi().createCrudUserService();
-        Call<User> call = crudUsersService.createUsers(user);
+        Call<User> call = crudUsersService.createUser(user);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

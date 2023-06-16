@@ -13,13 +13,12 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface CrudUsersService {
-
     @GET(Constants.CRUD_USER_END_POINT)
     Call<List<User>> fetchUsers();
 
     @POST(Constants.CRUD_USER_END_POINT)
-    Call<User> createUsers(@Body User user);
+    Call<User> createUser(@Body User user);
 
     @DELETE(Constants.CRUD_USER_END_POINT + "/{id}")
-    Call<Void> deleteUsers(@Path("id") String id);
+    Call<Void> deleteUser(@Path("id") String id);
 }

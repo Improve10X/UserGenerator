@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.improve10x.usergenerator.RandomUsersAdapter;
 import com.improve10x.usergenerator.UserDetailsActivity;
 import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
@@ -25,7 +24,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RandomUsersActivity extends AppCompatActivity {
-
     private ActivityRandomUsersBinding binding;
     private List<User> users = new ArrayList<>();
     private RandomUsersAdapter randomUsersAdapter;
@@ -38,10 +36,9 @@ public class RandomUsersActivity extends AppCompatActivity {
         setupAdapter();
         setupRandomUsersRv();
         fetchRandomUsers();
-
     }
 
-    private void setupAdapter () {
+    private void setupAdapter() {
         randomUsersAdapter = new RandomUsersAdapter(users);
         randomUsersAdapter.setShowSave(true);
         randomUsersAdapter.setOnClickedListener(new OnClickListener() {
@@ -61,7 +58,7 @@ public class RandomUsersActivity extends AppCompatActivity {
         });
     }
 
-    private  void upDateRandomUser(User user) {
+    private void upDateRandomUser(User user) {
         Intent intent = new Intent(this,UserDetailsActivity.class);
         intent.putExtra("randomUser", user);
         startActivity(intent);
@@ -74,7 +71,7 @@ public class RandomUsersActivity extends AppCompatActivity {
 
     private void fetchRandomUsers() {
         RandomPeopleService randomPeopleService = new PeopleApi().createRandomPeopleService();
-        Call<List<User>> call = randomPeopleService.fetchRandomPeople();
+        Call<List<User>> call = randomPeopleService.fetchRandomPeopleGenerator();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
@@ -90,7 +87,7 @@ public class RandomUsersActivity extends AppCompatActivity {
 
     private void createUser(User user){
         CrudUsersService crudUsersService = new CrudUserApi().createCrudUserService();
-        Call<User> call = crudUsersService.createUsers(user);
+        Call<User> call = crudUsersService.createUser(user);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
