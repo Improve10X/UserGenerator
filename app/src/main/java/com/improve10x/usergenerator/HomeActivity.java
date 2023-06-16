@@ -10,6 +10,7 @@ import com.improve10x.usergenerator.databinding.ActivityHomeBinding;
 import com.improve10x.usergenerator.users.generatorrandomusers.GeneratorRandomUsersActivity;
 
 public class HomeActivity extends AppCompatActivity {
+
     private ActivityHomeBinding binding;
 
     @Override
