@@ -16,10 +16,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserDetailsActivity extends AppCompatActivity {
-
     private ActivityUserDetailsBinding binding;
     private User user;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +76,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(UserDetailsActivity.this, "sucess", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(UserDetailsActivity.this, "success", Toast.LENGTH_SHORT).show();
             }
 
             @Override

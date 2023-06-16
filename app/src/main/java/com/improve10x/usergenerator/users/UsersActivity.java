@@ -22,12 +22,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UsersActivity extends AppCompatActivity {
-
     private List<User> users = new ArrayList<>();
     private ActivityUsersBinding binding;
     private CrudUsersService crudUsersService;
     private RandomUsersAdapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
