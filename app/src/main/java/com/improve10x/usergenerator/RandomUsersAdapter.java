@@ -15,7 +15,6 @@ import java.util.List;
 public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
 
     private List<User> users;
-    private  User user;
     private OnItemActionListener actionListener;
     private OnActionListener listener;
 
@@ -55,7 +54,7 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RandomViewHolder holder, int position) {
-        user = users.get(position);
+        User user = users.get(position);
         holder.randomUserItemBinding.setUser(user);
         holder.randomUserItemBinding.saveBtn.setOnClickListener(v -> {
             actionListener.saveUser(user);

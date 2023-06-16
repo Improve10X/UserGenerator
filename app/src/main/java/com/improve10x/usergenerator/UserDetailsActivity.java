@@ -20,5 +20,9 @@ public class UserDetailsActivity extends AppCompatActivity {
             user = (User) getIntent().getSerializableExtra(Constants.KEY_RANDOM_USERS_VALUE);
             userDetailsBinding.setUser(user);
         }
+        if (getIntent().hasExtra("User")) {
+            user = (User) getIntent().getSerializableExtra("User");
+            userDetailsBinding.setUser(user);
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.improve10x.usergenerator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -48,6 +49,19 @@ public class UsersActivity extends AppCompatActivity {
             @Override
             public void deleteUser(String id) {
                 deleteUserApi(id);
+            }
+        });
+        randomUsersAdapter.setActionListener(new OnItemActionListener() {
+            @Override
+            public void saveUser(User user) {
+
+            }
+
+            @Override
+            public void userDetails(User user) {
+                Intent intent = new Intent(UsersActivity.this, UserDetailsActivity.class);
+                intent.putExtra("User", user);
+                startActivity(intent);
             }
         });
     }
