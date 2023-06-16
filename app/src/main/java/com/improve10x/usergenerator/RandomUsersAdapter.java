@@ -59,6 +59,8 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
     public void onBindViewHolder(@NonNull RandomUserViewHolder holder, int position) {
         User user = users.get(position);
         holder.binding.setUser(user);
+        holder.binding.setShowSave(showSave);
+        holder.binding.setShowDelete(showDelete);
        /* holder.binding.nameTxt.setText(user.getName());
         holder.binding.emailTxt.setText(user.getEmail());
         holder.binding.creditScoreTxt.setText(String.valueOf(user.getCreditScore()));
@@ -67,14 +69,14 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomUserViewHolde
         holder.binding.locationTxt.setText(user.getAddress().getStreetAddress() + ", "
                 + user.getAddress().getCity() + ", " + user.getAddress().getCountryCode() +
                 user.getAddress().getZipCode());*/
-        if (showSave == true) {
-            holder.binding.saveBtn.setVisibility(View.VISIBLE);
-            holder.binding.deleteBtn.setVisibility(View.GONE);
-        }
-        if (showDelete == true) {
-            holder.binding.deleteBtn.setVisibility(View.VISIBLE);
-            holder.binding.saveBtn.setVisibility(View.GONE);
-        }
+//        if (showSave == true) {
+//            holder.binding.saveBtn.setVisibility(View.VISIBLE);
+//            holder.binding.deleteBtn.setVisibility(View.GONE);
+//        }
+//        if (showDelete == true) {
+//            holder.binding.deleteBtn.setVisibility(View.VISIBLE);
+//            holder.binding.saveBtn.setVisibility(View.GONE);
+//        }
         holder.binding.saveBtn.setOnClickListener(v -> {
             listener.onSaveClicked(user);
         });

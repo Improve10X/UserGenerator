@@ -6,6 +6,15 @@
         <variable
             name="user"
             type="com.improve10x.usergenerator.model.User"/>
+        <variable
+            name="showSave"
+            type="Boolean" />
+        <variable
+            name="showDelete"
+            type="Boolean" />
+        <import type="android.view.View">
+
+        </import>
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,6 +112,7 @@
         android:paddingRight="60dp"
         android:text="Save"
         android:textColor="#00BCD4"
+        android:visibility="@{showSave ? View.VISIBLE : View.GONE}"
         app:cornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/details_btn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -162,7 +172,7 @@
         android:paddingRight="60dp"
         android:text="Delete"
         android:textColor="#00BCD4"
-        android:visibility="gone"
+        android:visibility="@{showDelete ? View.VISIBLE : View.GONE}"
         app:cornerRadius="4dp"
         app:layout_constraintBottom_toBottomOf="@+id/details_btn"
         app:layout_constraintEnd_toEndOf="parent"
