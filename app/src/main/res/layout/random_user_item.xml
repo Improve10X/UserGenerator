@@ -3,9 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="user"
             type="com.improve10x.usergenerator.model.User" />
+        <variable
+            name="showSave"
+            type="Boolean" />
+        <variable
+            name="showDelete"
+            type="Boolean" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -150,7 +157,7 @@
                 android:paddingRight="50dp"
                 android:text="Save"
                 android:textColor="#2598CC"
-                android:visibility="visible"
+                android:visibility="@{showSave ? View.VISIBLE:View.GONE}"
                 app:layout_constraintBottom_toBottomOf="@+id/details_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.482"
@@ -178,7 +185,7 @@
                 android:paddingRight="50dp"
                 android:text="delete"
                 android:textColor="#2598CC"
-                android:visibility="invisible"
+                android:visibility="@{showDelete ? View.VISIBLE:View.GONE}"
                 app:layout_constraintBottom_toBottomOf="@+id/details_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.482"

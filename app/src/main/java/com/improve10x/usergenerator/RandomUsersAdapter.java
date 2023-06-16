@@ -56,17 +56,11 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
     public void onBindViewHolder(@NonNull RandomViewHolder holder, int position) {
         User user = users.get(position);
         holder.randomUserItemBinding.setUser(user);
+        holder.randomUserItemBinding.setShowSave(showSave);
+        holder.randomUserItemBinding.setShowDelete(showDelete);
         holder.randomUserItemBinding.saveBtn.setOnClickListener(v -> {
             actionListener.saveUser(user);
         });
-        if (showSave == true) {
-            holder.randomUserItemBinding.saveBtn.setVisibility(View.VISIBLE);
-            holder.randomUserItemBinding.deleteBtn.setVisibility(View.GONE);
-        }
-        if (showDelete == true) {
-            holder.randomUserItemBinding.deleteBtn.setVisibility(View.VISIBLE);
-            holder.randomUserItemBinding.saveBtn.setVisibility(View.GONE);
-        }
         holder.randomUserItemBinding.deleteBtn.setOnClickListener(view -> {
             listener.deleteUser(user.getId());
         });
