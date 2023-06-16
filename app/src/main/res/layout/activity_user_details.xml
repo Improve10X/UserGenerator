@@ -162,13 +162,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/address_txt" />
 
             <Button
-                android:id="@+id/delete_save_btn"
+                android:id="@+id/u_d_save_btn"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="20dp"
                 android:backgroundTint="#FFFFFF"
-                android:text="Delete / Save"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:text="Save"
                 android:textAllCaps="false"
                 android:textColor="#00BCD4"
                 app:layout_constraintBottom_toBottomOf="@+id/details_btn"
@@ -440,6 +442,21 @@
                 app:layout_constraintBottom_toBottomOf="@+id/textView21"
                 app:layout_constraintStart_toStartOf="@+id/political_leaning_txt"
                 app:layout_constraintTop_toTopOf="@+id/textView21" />
+
+            <Button
+                android:id="@+id/u_d_delete"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:paddingLeft="60dp"
+                android:paddingRight="60dp"
+                android:text="Delete"
+                android:textColor="#00ACC1"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/details_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/details_btn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

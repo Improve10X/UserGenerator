@@ -3,6 +3,7 @@ package com.improve10x.usergenerator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.improve10x.usergenerator.databinding.ActivityUserDetailsBinding;
 import com.improve10x.usergenerator.model.User;
@@ -20,8 +21,12 @@ public class UserDetailsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         if(getIntent().hasExtra("User")) {
            user = (User) getIntent().getSerializableExtra("User");
+           binding.uDDelete.setVisibility(View.VISIBLE);
+           binding.uDSaveBtn.setVisibility(View.GONE);
         } else if (getIntent().hasExtra("randomUser")) {
           user = (User) getIntent().getSerializableExtra("randomUser");
+            binding.uDDelete.setVisibility(View.GONE);
+            binding.uDSaveBtn.setVisibility(View.VISIBLE);
         }
         showData();
     }
