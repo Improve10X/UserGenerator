@@ -71,23 +71,7 @@ public class UsersActivity extends BaseActivity {
         usersAdapter = new UsersAdapter();
         usersAdapter.setUsers(users);
         usersAdapter.setShowDeleteBtn(true);
-        usersAdapter.setOnItemActionListener(new OnItemActionListener() {
-            @Override
-            public void onSave(User user) {
-            }
-
-            @Override
-            public void onDelete(String id) {
-                deleteUser(id);
-            }
-
-            @Override
-            public void onDetails(User user) {
-                Intent intent = new Intent(UsersActivity.this, UserDetailsActivity.class);
-                intent.putExtra(Constants.KEY_USER, user);
-                startActivity(intent);
-            }
-        });
+        setOnItemActionListener();
     }
 
     private void deleteUser(String id) {
@@ -113,5 +97,25 @@ public class UsersActivity extends BaseActivity {
     private void createCrudUserApiService() {
         CrudUserApi api = new CrudUserApi();
         crudUserApiService = api.createCrudUserApiService();
+    }
+
+    private void setOnItemActionListener() {
+        usersAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onSave(User user) {
+            }
+
+            @Override
+            public void onDelete(String id) {
+                deleteUser(id);
+            }
+
+            @Override
+            public void onDetails(User user) {
+                Intent intent = new Intent(UsersActivity.this, UserDetailsActivity.class);
+                intent.putExtra(Constants.KEY_USER, user);
+                startActivity(intent);
+            }
+        });
     }
 }
