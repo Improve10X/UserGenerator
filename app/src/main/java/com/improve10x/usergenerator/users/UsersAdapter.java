@@ -16,13 +16,9 @@ import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
     private List<User> Users;
-
     private OnItemActionListener onItemActionListener;
-
     private boolean showSaveBtn = false;
-
     private boolean showDeleteBtn = false;
-
     public void setShowSaveBtn(boolean showSaveBtn) {
         this.showSaveBtn = showSaveBtn;
     }
