@@ -45,25 +45,15 @@ public class UserDetailsActivity extends BaseActivity {
         binding.setUser(user);
     }
 
-    private void createUser() {
-        CrudUserApiService crudUserApiService = new CrudUserApi().createCrudUserApiService();
-        Call<User> call = crudUserApiService.createUser(user);
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                showToast("Saved SuccessFully");
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                showToast("Save Failed");
-            }
-        });
-    }
-
     private void handleSaveBtn() {
         binding.saveBtn.setOnClickListener(v -> {
             createUser();
+        });
+    }
+
+    private void handleDeleteBtn() {
+        binding.deleteBtn.setOnClickListener(v -> {
+            deleteUser();
         });
     }
 
@@ -83,9 +73,19 @@ public class UserDetailsActivity extends BaseActivity {
         });
     }
 
-    private void handleDeleteBtn() {
-        binding.deleteBtn.setOnClickListener(v -> {
-            deleteUser();
+    private void createUser() {
+        CrudUserApiService crudUserApiService = new CrudUserApi().createCrudUserApiService();
+        Call<User> call = crudUserApiService.createUser(user);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                showToast("Saved SuccessFully");
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                showToast("Save Failed");
+            }
         });
     }
 
