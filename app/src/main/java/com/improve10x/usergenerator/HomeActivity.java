@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.improve10x.usergenerator.users.crudusers.UsersActivity;
 import com.improve10x.usergenerator.databinding.ActivityHomeBinding;
-import com.improve10x.usergenerator.users.generatorrandomusers.GenerateRandomUsersActivity;
+import com.improve10x.usergenerator.users.generatorrandomusers.GeneratorRandomUsersActivity;
 
 public class HomeActivity extends AppCompatActivity {
     private ActivityHomeBinding binding;
@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void handleGenerateRandomUsersBtn() {
         binding.generateRandomUsersBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(this, GenerateRandomUsersActivity.class);
+            Intent intent = new Intent(this, GeneratorRandomUsersActivity.class);
             startActivity(intent);
         });
     }

@@ -10,14 +10,12 @@ import com.improve10x.usergenerator.databinding.ActivityUserDetailsBinding;
 import com.improve10x.usergenerator.model.User;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApi;
 import com.improve10x.usergenerator.network.crudnetwork.CrudUserApiService;
-import com.improve10x.usergenerator.users.crudusers.UsersActivity;
-import com.improve10x.usergenerator.users.generatorrandomusers.GenerateRandomUsersActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserDetailsActivity extends AppCompatActivity {
+public class UserDetailsActivity extends BaseActivity {
 
      private ActivityUserDetailsBinding binding;
      private User user;
@@ -53,12 +51,12 @@ public class UserDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(UserDetailsActivity.this, "Saved SuccessFully", Toast.LENGTH_SHORT).show();
+                showToast("Saved SuccessFully");
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(UserDetailsActivity.this, "Save Failed", Toast.LENGTH_SHORT).show();
+                showToast("Save Failed");
             }
         });
     }
@@ -75,12 +73,12 @@ public class UserDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(UserDetailsActivity.this, "Successfully deleted user", Toast.LENGTH_SHORT).show();
+                showToast("Successfully deleted user");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(UserDetailsActivity.this, "Failed to delete user", Toast.LENGTH_SHORT).show();
+                showToast("Failed to delete user");
             }
         });
     }

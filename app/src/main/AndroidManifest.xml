@@ -21,7 +21,7 @@
             android:name=".users.crudusers.UsersActivity"
             android:exported="false" />
         <activity
-            android:name=".users.generatorrandomusers.GenerateRandomUsersActivity"
+            android:name=".users.generatorrandomusers.GeneratorRandomUsersActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
