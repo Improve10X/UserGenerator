@@ -44,8 +44,7 @@ public class GeneratorRandomUsersActivity extends BaseActivity {
 
     private void getUsers() {
         showProgressBar();
-        PeopleGeneratorApi peopleGeneratorApi = new PeopleGeneratorApi();
-        PeopleGeneratorApiService peopleGeneratorApiService = peopleGeneratorApi.createPeopleGeneratorApiService();
+        PeopleGeneratorApiService peopleGeneratorApiService = new PeopleGeneratorApi().createPeopleGeneratorApiService();
         Call<List<User>> call = peopleGeneratorApiService.fetchGeneratorUsers();
         call.enqueue(new Callback<List<User>>() {
             @Override
@@ -67,23 +66,6 @@ public class GeneratorRandomUsersActivity extends BaseActivity {
         usersAdapter = new UsersAdapter();
         usersAdapter.setUsers(users);
         usersAdapter.setShowSaveBtn(true);
-        usersAdapter.setOnItemActionListener(new OnItemActionListener() {
-            @Override
-            public void onSave(User user) {
-                createUser(user);
-            }
-
-            @Override
-            public void onDelete(String id) {
-            }
-
-            @Override
-            public void onDetails(User user) {
-                Intent intent = new Intent(GeneratorRandomUsersActivity.this, UserDetailsActivity.class);
-                intent.putExtra(Constants.KEY_RANDOM_USER, user);
-                startActivity(intent);
-            }
-        });
     }
 
     private void setupRecyclerView() {
@@ -106,6 +88,25 @@ public class GeneratorRandomUsersActivity extends BaseActivity {
             public void onFailure(Call<User> call, Throwable t) {
                 hideProgressBar();
                 showToast("Save Failed");
+            }
+        });
+    }
+    private  void setOnItemActionListener(){
+        usersAdapter.setOnItemActionListener(new OnItemActionListener() {
+            @Override
+            public void onSave(User user) {
+                createUser(user);
+            }
+
+            @Override
+            public void onDelete(String id) {
+            }
+
+            @Override
+            public void onDetails(User user) {
+                Intent intent = new Intent(GeneratorRandomUsersActivity.this, UserDetailsActivity.class);
+                intent.putExtra(Constants.KEY_RANDOM_USER, user);
+                startActivity(intent);
             }
         });
     }
