@@ -18,8 +18,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserDetailsActivity extends AppCompatActivity {
-   private ActivityUserDetailsBinding userDetailsBinding;
-   private User user;
+    private ActivityUserDetailsBinding userDetailsBinding;
+    private User user;
+
+    private UsersApiService usersApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,58 +29,75 @@ public class UserDetailsActivity extends AppCompatActivity {
         userDetailsBinding = ActivityUserDetailsBinding.inflate(getLayoutInflater());
         setContentView(userDetailsBinding.getRoot());
         getSupportActionBar().setTitle("User Details");
-
-        if (getIntent().hasExtra("User")) {
-            user = (User) getIntent().getSerializableExtra("User");
+        if (getIntent().hasExtra(Constants.KEY_USER_VALUE)) {
+            user = (User) getIntent().getSerializableExtra(Constants.KEY_USER_VALUE);
             userDetailsBinding.deleteBtn.setVisibility(View.VISIBLE);
             userDetailsBinding.saveBtn.setVisibility(View.INVISIBLE);
-        } else if(getIntent().hasExtra(Constants.KEY_RANDOM_USERS_VALUE)) {
+        } else if (getIntent().hasExtra(Constants.KEY_RANDOM_USERS_VALUE)) {
             user = (User) getIntent().getSerializableExtra(Constants.KEY_RANDOM_USERS_VALUE);
             userDetailsBinding.deleteBtn.setVisibility(View.INVISIBLE);
             userDetailsBinding.saveBtn.setVisibility(View.VISIBLE);
         }
         userDetailsBinding.setUser(user);
-
-        userDetailsBinding.deleteBtn.setOnClickListener(view -> {
-            deleteUserDetails();
-        });
-
-        userDetailsBinding.saveBtn.setOnClickListener(v -> {
-            addUserDetails();
-        });
+        handleBtn();
     }
 
     private void addUserDetails() {
-        UsersApi usersApi = new UsersApi();
-        UsersApiService usersApiService = usersApi.createUserApiService();
-        Call <User> call = usersApiService.createUser(user);
+        createApiService();
+        Call<User> call = usersApiService.createUser(user);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(UserDetailsActivity.this, "Successfully added the data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully added the data");
                 finish();
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(UserDetailsActivity.this, "Failed to add data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to add the data");
             }
         });
     }
 
-    private void deleteUserDetails(){
-        UsersApiService usersApiService = new UsersApi().createUserApiService();
+    private void deleteUserDetails() {
+        createApiService();
         Call<Void> call = usersApiService.deleteUser(user.getId());
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(UserDetailsActivity.this, "Deleted person details", Toast.LENGTH_SHORT).show();
+                showToast("Successfully deleted the data");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                Toast.makeText(UserDetailsActivity.this, "Failed to delete details", Toast.LENGTH_SHORT).show();
+                showToast("failed to deleted the data");
             }
+        });
+    }
+
+    private void createApiService() {
+        UsersApi usersApi = new UsersApi();
+        usersApiService = usersApi.createUserApiService();
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void handleBtn() {
+        handleSaveBtn();
+        handleDeleteBtn();
+    }
+
+    private void handleDeleteBtn() {
+        userDetailsBinding.deleteBtn.setOnClickListener(view -> {
+            deleteUserDetails();
+        });
+    }
+
+    private void handleSaveBtn() {
+        userDetailsBinding.saveBtn.setOnClickListener(v -> {
+            addUserDetails();
         });
     }
 }

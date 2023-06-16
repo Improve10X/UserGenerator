@@ -17,11 +17,9 @@ public class RandomUsersAdapter extends RecyclerView.Adapter<RandomViewHolder> {
     private List<User> users;
     private OnItemActionListener actionListener;
     private OnActionListener listener;
-
     void setListener(OnActionListener listener) {
         this.listener = listener;
     }
-
     private boolean showSave = false;
     private boolean showDelete = false;
 

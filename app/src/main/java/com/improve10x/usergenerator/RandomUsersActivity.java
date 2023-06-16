@@ -85,7 +85,7 @@ public class RandomUsersActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(RandomUsersActivity.this, "Failed to fetch the data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to load the data");
             }
         });
     }
@@ -104,8 +104,12 @@ public class RandomUsersActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(RandomUsersActivity.this, "Failed to add the data", Toast.LENGTH_SHORT).show();
+                showToast("Failed to add the Data");
             }
         });
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

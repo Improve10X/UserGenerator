@@ -60,7 +60,7 @@ public class UsersActivity extends AppCompatActivity {
             @Override
             public void userDetails(User user) {
                 Intent intent = new Intent(UsersActivity.this, UserDetailsActivity.class);
-                intent.putExtra("User", user);
+                intent.putExtra(Constants.KEY_USER_VALUE, user);
                 startActivity(intent);
             }
         });
