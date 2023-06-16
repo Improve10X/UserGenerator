@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.improve10x.usergenerator.Constants;
@@ -74,11 +75,13 @@ public class RandomUsersActivity extends AppCompatActivity {
     }
 
     private void fetchRandomUsers() {
+        showProgressBar();
         setupRandomUsersApiService();
         Call<List<User>> call = randomPeopleApiService.getRandomPeople();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                hideProgressBar();
                 if (response.isSuccessful()) {
                     List<User> userList = response.body();
                     randomUsersAdapter.setUsers(userList);
@@ -87,6 +90,7 @@ public class RandomUsersActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed to load the data");
             }
         });
@@ -113,5 +117,13 @@ public class RandomUsersActivity extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showProgressBar() {
+        activityRandomUsersBinding.randomProgressBarPb.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        activityRandomUsersBinding.randomProgressBarPb.setVisibility(View.GONE);
     }
 }

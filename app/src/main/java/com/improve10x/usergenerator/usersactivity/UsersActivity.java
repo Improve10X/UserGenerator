@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.improve10x.usergenerator.Constants;
@@ -71,12 +72,14 @@ public class UsersActivity extends AppCompatActivity {
     }
 
     private void fetchUsers() {
+        showProgressBar();
         UsersApi usersApi = new UsersApi();
         UsersApiService usersApiService = usersApi.createUserApiService();
         Call<List<User>> call = usersApiService.getUsers();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                hideProgressBar();
                 if (response.isSuccessful()) {
                     List<User> userList = response.body();
                     randomUsersAdapter.setUsers(userList);
@@ -86,6 +89,7 @@ public class UsersActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
+                hideProgressBar();
                 Toast.makeText(UsersActivity.this, "Failed to fetch the data", Toast.LENGTH_SHORT).show();
             }
         });
@@ -106,5 +110,13 @@ public class UsersActivity extends AppCompatActivity {
                 Toast.makeText(UsersActivity.this, "Failed to delete item", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showProgressBar() {
+        activityUsersBinding.progressBarPb.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        activityUsersBinding.progressBarPb.setVisibility(View.GONE);
     }
 }
