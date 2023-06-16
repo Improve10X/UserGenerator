@@ -38,17 +38,33 @@ public class RandomUsersActivity extends AppCompatActivity {
         setupAdapter();
         setupRandomUsersRv();
         fetchRandomUsers();
+
     }
 
     private void setupAdapter () {
         randomUsersAdapter = new RandomUsersAdapter(users);
         randomUsersAdapter.setShowSave(true);
-        randomUsersAdapter.setOnClickListener(new OnItemClickListener() {
+        randomUsersAdapter.setOnClickedListener(new OnClickListener() {
+            @Override
+            public void onDeleteClicked(String id) {
+            }
+
+            @Override
+            public void onItemDetailsClicked(User user) {
+            upDateRandomUser(user);
+            }
+
             @Override
             public void onSaveClicked(User user) {
-                createUser(user);
+            createUser(user);
             }
         });
+    }
+
+    private  void upDateRandomUser(User user) {
+        Intent intent = new Intent(this,UserDetailsActivity.class);
+        intent.putExtra("randomUser", user);
+        startActivity(intent);
     }
 
     private void setupRandomUsersRv() {

@@ -68,7 +68,7 @@ public class UsersActivity extends AppCompatActivity {
     private void setupAdapter() {
         adapter = new RandomUsersAdapter(users);
         adapter.setShowDelete(true);
-        adapter.setOnClickListener(new OnClickListener() {
+        adapter.setOnClickedListener(new OnClickListener() {
             @Override
             public void onDeleteClicked(String id) {
                 deleteCrudUser(id);
@@ -77,6 +77,10 @@ public class UsersActivity extends AppCompatActivity {
             @Override
             public void onItemDetailsClicked(User user) {
                 updateUser(user);
+            }
+
+            @Override
+            public void onSaveClicked(User user) {
             }
         });
     }

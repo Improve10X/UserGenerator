@@ -20,6 +20,8 @@ public class UserDetailsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         if(getIntent().hasExtra("User")) {
            user = (User) getIntent().getSerializableExtra("User");
+        } else if (getIntent().hasExtra("randomUser")) {
+          user = (User) getIntent().getSerializableExtra("randomUser");
         }
         showData();
     }
