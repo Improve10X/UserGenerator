@@ -15,7 +15,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserDetailsActivity extends AppCompatActivity {
+public class UserDetailsActivity extends BaseActivity {
     private ActivityUserDetailsBinding binding;
     private User user;
 
@@ -24,6 +24,13 @@ public class UserDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityUserDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        checkReceiveData();
+        showData();
+        handleDeleteBtn();
+        handleSaveBtn();
+    }
+
+    private void checkReceiveData() {
         if (getIntent().hasExtra("User")) {
             user = (User) getIntent().getSerializableExtra("User");
             binding.uDDelete.setVisibility(View.VISIBLE);
@@ -33,9 +40,6 @@ public class UserDetailsActivity extends AppCompatActivity {
             binding.uDDelete.setVisibility(View.GONE);
             binding.uDSaveBtn.setVisibility(View.VISIBLE);
         }
-        showData();
-        handleDeleteBtn();
-        handleSaveBtn();
     }
 
     private void handleSaveBtn() {
@@ -60,12 +64,12 @@ public class UserDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-
+                showToast("Successfully Deleted the Data");
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-
+                showToast("Failed to Delete Data");
             }
         });
     }
@@ -76,15 +80,13 @@ public class UserDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(UserDetailsActivity.this, "success", Toast.LENGTH_SHORT).show();
+                showToast("Successfully Saved the Data");
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                showToast("Failed to Save Data");
             }
         });
-
     }
-
 }
