@@ -43,18 +43,21 @@ public class GeneratorRandomUsersActivity extends BaseActivity {
     }
 
     private void getUsers() {
+        showProgressBar();
         PeopleGeneratorApi peopleGeneratorApi = new PeopleGeneratorApi();
         PeopleGeneratorApiService peopleGeneratorApiService = peopleGeneratorApi.createPeopleGeneratorApiService();
         Call<List<User>> call = peopleGeneratorApiService.fetchGeneratorUsers();
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                hideProgressBar();
                 List<User> generateRandomUsers = response.body();
                 usersAdapter.setUsers(generateRandomUsers);
             }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
+                hideProgressBar();
                 showToast("Failed To Load Data");
             }
         });
@@ -89,16 +92,19 @@ public class GeneratorRandomUsersActivity extends BaseActivity {
     }
 
     private void createUser(User user) {
+        showProgressBar();
         CrudUserApiService crudUserApiService = new CrudUserApi().createCrudUserApiService();
         Call<User> call = crudUserApiService.createUser(user);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
+                hideProgressBar();
                 showToast("Saved Successfully");
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                hideProgressBar();
                 showToast("Save Failed");
             }
         });
