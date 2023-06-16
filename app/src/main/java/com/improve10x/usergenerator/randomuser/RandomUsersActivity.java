@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.improve10x.usergenerator.BaseActivity;
 import com.improve10x.usergenerator.UserDetailsActivity;
 import com.improve10x.usergenerator.databinding.ActivityRandomUsersBinding;
 import com.improve10x.usergenerator.model.User;
@@ -23,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RandomUsersActivity extends AppCompatActivity {
+public class RandomUsersActivity extends BaseActivity {
     private ActivityRandomUsersBinding binding;
     private List<User> users = new ArrayList<>();
     private RandomUsersAdapter randomUsersAdapter;
@@ -75,12 +76,14 @@ public class RandomUsersActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                randomUsersAdapter.setData(response.body());
+                if (response.isSuccessful()) {
+                    randomUsersAdapter.setData(response.body());
+                }
             }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(RandomUsersActivity.this, "Fetch Failed", Toast.LENGTH_SHORT).show();
+                showToast("Failed the Load Data");
             }
         });
     }
@@ -91,12 +94,12 @@ public class RandomUsersActivity extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(RandomUsersActivity.this, "successfully saved data", Toast.LENGTH_SHORT).show();
+                showToast("Successfully Saved the Data");
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(RandomUsersActivity.this, "failed", Toast.LENGTH_SHORT).show();
+                showToast("Failed to Save the Data");
             }
         });
     }
