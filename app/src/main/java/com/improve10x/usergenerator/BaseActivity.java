@@ -20,13 +20,14 @@ public class BaseActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    protected void showProgressBar() {
+    protected void showProgressDialog(String message) {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Please wait...");
+        progressDialog.setMessage(message);
         progressDialog.show();
     }
 
-    protected void hideProgressBar() {
+    protected void hideProgressDialog() {
         progressDialog.cancel();
     }
 }
