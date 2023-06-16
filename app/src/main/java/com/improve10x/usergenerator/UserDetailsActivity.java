@@ -1,10 +1,7 @@
 package com.improve10x.usergenerator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.improve10x.usergenerator.databinding.ActivityUserDetailsBinding;
 import com.improve10x.usergenerator.model.User;
@@ -17,9 +14,9 @@ import retrofit2.Response;
 
 public class UserDetailsActivity extends BaseActivity {
 
-     private ActivityUserDetailsBinding binding;
-     private User user;
-     private CrudUserApiService crudUserApiService;
+    private ActivityUserDetailsBinding binding;
+    private User user;
+    private CrudUserApiService crudUserApiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

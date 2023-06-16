@@ -1,11 +1,10 @@
 package com.improve10x.usergenerator.users.generatorrandomusers;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.improve10x.usergenerator.BaseActivity;
 import com.improve10x.usergenerator.Constants;

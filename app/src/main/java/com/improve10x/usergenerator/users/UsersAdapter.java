@@ -1,13 +1,11 @@
 package com.improve10x.usergenerator.users;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.improve10x.usergenerator.databinding.UserItemBinding;
 import com.improve10x.usergenerator.model.User;
@@ -19,6 +17,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder> {
     private OnItemActionListener onItemActionListener;
     private boolean showSaveBtn = false;
     private boolean showDeleteBtn = false;
+
     public void setShowSaveBtn(boolean showSaveBtn) {
         this.showSaveBtn = showSaveBtn;
     }
