@@ -66,6 +66,7 @@ public class GeneratorRandomUsersActivity extends BaseActivity {
         usersAdapter = new UsersAdapter();
         usersAdapter.setUsers(users);
         usersAdapter.setShowSaveBtn(true);
+        setOnItemActionListener();
     }
 
     private void setupRecyclerView() {
@@ -91,7 +92,8 @@ public class GeneratorRandomUsersActivity extends BaseActivity {
             }
         });
     }
-    private  void setOnItemActionListener(){
+
+    private void setOnItemActionListener() {
         usersAdapter.setOnItemActionListener(new OnItemActionListener() {
             @Override
             public void onSave(User user) {
