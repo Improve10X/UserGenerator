@@ -62,7 +62,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                Toast.makeText(UserDetailsActivity.this, "userDeleted", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -79,6 +79,7 @@ public class UserDetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 Toast.makeText(UserDetailsActivity.this, "sucess", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
