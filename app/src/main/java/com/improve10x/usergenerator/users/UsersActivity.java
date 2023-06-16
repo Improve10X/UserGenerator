@@ -28,7 +28,6 @@ public class UsersActivity extends AppCompatActivity {
     private CrudUsersService crudUsersService;
     private RandomUsersAdapter adapter;
 
-    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,12 @@ public class UsersActivity extends AppCompatActivity {
         setupApi();
         setupAdapter();
         setupUsersRv();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchCrudUsers();
     }
 
     private void deleteCrudUser(String id) {
@@ -94,12 +99,6 @@ public class UsersActivity extends AppCompatActivity {
                 Toast.makeText(UsersActivity.this, "fetchFailed", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        fetchCrudUsers();
     }
 
     private void updateUser(User user) {
