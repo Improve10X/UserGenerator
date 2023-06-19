@@ -26,12 +26,12 @@ public class UserDetailsActivity extends BaseActivity {
         getSupportActionBar().setTitle("User Details");
         if (getIntent().hasExtra(Constants.KEY_USER)) {
             user = (User) getIntent().getSerializableExtra(Constants.KEY_USER);
-            binding.deleteBtn.setVisibility(View.VISIBLE);
-            binding.saveBtn.setVisibility(View.INVISIBLE);
+            binding.setShowDelete(true);
+            binding.setShowSave(false);
         } else if (getIntent().hasExtra(Constants.KEY_RANDOM_USER)) {
             user = (User) getIntent().getSerializableExtra(Constants.KEY_RANDOM_USER);
-            binding.saveBtn.setVisibility(View.VISIBLE);
-            binding.deleteBtn.setVisibility(View.INVISIBLE);
+            binding.setShowSave(true);
+            binding.setShowDelete(false);
         }
         showData();
         handleSaveBtn();
