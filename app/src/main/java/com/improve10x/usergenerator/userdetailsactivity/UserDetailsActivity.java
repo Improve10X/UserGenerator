@@ -32,12 +32,10 @@ public class UserDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("User Details");
         if (getIntent().hasExtra(Constants.KEY_USER_VALUE)) {
             user = (User) getIntent().getSerializableExtra(Constants.KEY_USER_VALUE);
-            userDetailsBinding.deleteBtn.setVisibility(View.VISIBLE);
-            userDetailsBinding.saveBtn.setVisibility(View.INVISIBLE);
+            userDetailsBinding.setShowDelete(true);
         } else if (getIntent().hasExtra(Constants.KEY_RANDOM_USERS_VALUE)) {
             user = (User) getIntent().getSerializableExtra(Constants.KEY_RANDOM_USERS_VALUE);
-            userDetailsBinding.deleteBtn.setVisibility(View.INVISIBLE);
-            userDetailsBinding.saveBtn.setVisibility(View.VISIBLE);
+            userDetailsBinding.setShowSave(true);
         }
         userDetailsBinding.setUser(user);
         handleBtn();
